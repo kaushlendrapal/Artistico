@@ -2,12 +2,12 @@
 //  ArtisticoTests.swift
 //  ArtisticoTests
 //
-//  Created by kaushlendra on 15/03/15.
-//  Copyright (c) 2015 kaushlendra. All rights reserved.
+//  Created by kaushal on 11/14/16.
+//  Copyright © 2016 kaushal. All rights reserved.
 //
 
-import UIKit
 import XCTest
+@testable import Artistico
 
 class ArtisticoTests: XCTestCase {
     
@@ -23,12 +23,12 @@ class ArtisticoTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

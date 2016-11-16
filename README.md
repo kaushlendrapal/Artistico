@@ -1,2 +1,0 @@
-# Artistico
-swift project.

@@ -7,124 +7,165 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1C0ED5D1AB603B8002C3583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0ED5C1AB603B8002C3583 /* AppDelegate.swift */; };
-		E1C0ED601AB603B8002C3583 /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C0ED5E1AB603B8002C3583 /* Artistico.xcdatamodeld */; };
-		E1C0ED621AB603B8002C3583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0ED611AB603B8002C3583 /* ViewController.swift */; };
-		E1C0ED651AB603B8002C3583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C0ED631AB603B8002C3583 /* Main.storyboard */; };
-		E1C0ED671AB603B8002C3583 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C0ED661AB603B8002C3583 /* Images.xcassets */; };
-		E1C0ED6A1AB603B8002C3583 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C0ED681AB603B8002C3583 /* LaunchScreen.xib */; };
-		E1C0ED761AB603B8002C3583 /* ArtisticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0ED751AB603B8002C3583 /* ArtisticoTests.swift */; };
+		70328069F1CF2867EF3DC592 /* Pods_ArtisticoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */; };
+		DBF86A762E532BD44317943A /* Pods_Artistico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */; };
+		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
+		E18FB69D1DD990A70056004F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69C1DD990A70056004F /* ViewController.swift */; };
+		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
+		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
+		E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E18FB6A41DD990A70056004F /* Assets.xcassets */; };
+		E18FB6A81DD990A70056004F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB6A61DD990A70056004F /* LaunchScreen.storyboard */; };
+		E18FB6B31DD990A70056004F /* ArtisticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6B21DD990A70056004F /* ArtisticoTests.swift */; };
+		E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C11DD9954A0056004F /* LoginViewController.swift */; };
+		E18FB6C41DD995740056004F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C31DD995740056004F /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E1C0ED701AB603B8002C3583 /* PBXContainerItemProxy */ = {
+		E18FB6AF1DD990A70056004F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1C0ED4F1AB603B8002C3583 /* Project object */;
+			containerPortal = E18FB68F1DD990A70056004F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E1C0ED561AB603B8002C3583;
+			remoteGlobalIDString = E18FB6961DD990A70056004F;
 			remoteInfo = Artistico;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E1C0ED571AB603B8002C3583 /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1C0ED5B1AB603B8002C3583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1C0ED5C1AB603B8002C3583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1C0ED5F1AB603B8002C3583 /* Artistico.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Artistico.xcdatamodel; sourceTree = "<group>"; };
-		E1C0ED611AB603B8002C3583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E1C0ED641AB603B8002C3583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E1C0ED661AB603B8002C3583 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E1C0ED691AB603B8002C3583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E1C0ED6F1AB603B8002C3583 /* ArtisticoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtisticoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1C0ED741AB603B8002C3583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1C0ED751AB603B8002C3583 /* ArtisticoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisticoTests.swift; sourceTree = "<group>"; };
+		112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtisticoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16C46A9AE6231A034F7C25C5 /* Pods-Artistico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artistico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Artistico/Pods-Artistico.debug.xcconfig"; sourceTree = "<group>"; };
+		72EB938547D59230101F4B35 /* Pods-ArtisticoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artistico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1CFCCCEF2DC5B3D09DAE7C /* Pods-ArtisticoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests.release.xcconfig"; sourceTree = "<group>"; };
+		C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artistico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artistico/Pods-Artistico.release.xcconfig"; sourceTree = "<group>"; };
+		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E18FB69C1DD990A70056004F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E18FB6A21DD990A70056004F /* Artistico.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Artistico.xcdatamodel; sourceTree = "<group>"; };
+		E18FB6A41DD990A70056004F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E18FB6A71DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E18FB6A91DD990A70056004F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E18FB6AE1DD990A70056004F /* ArtisticoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtisticoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18FB6B21DD990A70056004F /* ArtisticoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisticoTests.swift; sourceTree = "<group>"; };
+		E18FB6B41DD990A70056004F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E18FB6C11DD9954A0056004F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		E18FB6C31DD995740056004F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = Login/LoginView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E1C0ED541AB603B8002C3583 /* Frameworks */ = {
+		E18FB6941DD990A70056004F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF86A762E532BD44317943A /* Pods_Artistico.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1C0ED6C1AB603B8002C3583 /* Frameworks */ = {
+		E18FB6AB1DD990A70056004F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70328069F1CF2867EF3DC592 /* Pods_ArtisticoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E1C0ED4E1AB603B8002C3583 = {
+		3D57BC3A657837BCB8F4B093 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E1C0ED591AB603B8002C3583 /* Artistico */,
-				E1C0ED721AB603B8002C3583 /* ArtisticoTests */,
-				E1C0ED581AB603B8002C3583 /* Products */,
+				16C46A9AE6231A034F7C25C5 /* Pods-Artistico.debug.xcconfig */,
+				C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */,
+				72EB938547D59230101F4B35 /* Pods-ArtisticoTests.debug.xcconfig */,
+				AB1CFCCCEF2DC5B3D09DAE7C /* Pods-ArtisticoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		90AC9442261A51AB2CE9117A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */,
+				112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E18FB68E1DD990A70056004F = {
+			isa = PBXGroup;
+			children = (
+				E18FB6991DD990A70056004F /* Artistico */,
+				E18FB6B11DD990A70056004F /* ArtisticoTests */,
+				E18FB6981DD990A70056004F /* Products */,
+				3D57BC3A657837BCB8F4B093 /* Pods */,
+				90AC9442261A51AB2CE9117A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E1C0ED581AB603B8002C3583 /* Products */ = {
+		E18FB6981DD990A70056004F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1C0ED571AB603B8002C3583 /* Artistico.app */,
-				E1C0ED6F1AB603B8002C3583 /* ArtisticoTests.xctest */,
+				E18FB6971DD990A70056004F /* Artistico.app */,
+				E18FB6AE1DD990A70056004F /* ArtisticoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E1C0ED591AB603B8002C3583 /* Artistico */ = {
+		E18FB6991DD990A70056004F /* Artistico */ = {
 			isa = PBXGroup;
 			children = (
-				E1C0ED5C1AB603B8002C3583 /* AppDelegate.swift */,
-				E1C0ED611AB603B8002C3583 /* ViewController.swift */,
-				E1C0ED631AB603B8002C3583 /* Main.storyboard */,
-				E1C0ED661AB603B8002C3583 /* Images.xcassets */,
-				E1C0ED681AB603B8002C3583 /* LaunchScreen.xib */,
-				E1C0ED5E1AB603B8002C3583 /* Artistico.xcdatamodeld */,
-				E1C0ED5A1AB603B8002C3583 /* Supporting Files */,
+				E18FB6BE1DD9919F0056004F /* login */,
+				E18FB6BD1DD991820056004F /* appBase */,
+				E18FB6A41DD990A70056004F /* Assets.xcassets */,
+				E18FB6A61DD990A70056004F /* LaunchScreen.storyboard */,
+				E18FB6A91DD990A70056004F /* Info.plist */,
+				E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */,
 			);
 			path = Artistico;
 			sourceTree = "<group>";
 		};
-		E1C0ED5A1AB603B8002C3583 /* Supporting Files */ = {
+		E18FB6B11DD990A70056004F /* ArtisticoTests */ = {
 			isa = PBXGroup;
 			children = (
-				E1C0ED5B1AB603B8002C3583 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E1C0ED721AB603B8002C3583 /* ArtisticoTests */ = {
-			isa = PBXGroup;
-			children = (
-				E1C0ED751AB603B8002C3583 /* ArtisticoTests.swift */,
-				E1C0ED731AB603B8002C3583 /* Supporting Files */,
+				E18FB6B21DD990A70056004F /* ArtisticoTests.swift */,
+				E18FB6B41DD990A70056004F /* Info.plist */,
 			);
 			path = ArtisticoTests;
 			sourceTree = "<group>";
 		};
-		E1C0ED731AB603B8002C3583 /* Supporting Files */ = {
+		E18FB6BD1DD991820056004F /* appBase */ = {
 			isa = PBXGroup;
 			children = (
-				E1C0ED741AB603B8002C3583 /* Info.plist */,
+				E18FB69A1DD990A70056004F /* AppDelegate.swift */,
+				E18FB69C1DD990A70056004F /* ViewController.swift */,
+				E18FB69E1DD990A70056004F /* Main.storyboard */,
 			);
-			name = "Supporting Files";
+			name = appBase;
+			sourceTree = "<group>";
+		};
+		E18FB6BE1DD9919F0056004F /* login */ = {
+			isa = PBXGroup;
+			children = (
+				E18FB6C11DD9954A0056004F /* LoginViewController.swift */,
+				E18FB6C31DD995740056004F /* LoginView.swift */,
+			);
+			name = login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1C0ED561AB603B8002C3583 /* Artistico */ = {
+		E18FB6961DD990A70056004F /* Artistico */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1C0ED791AB603B8002C3583 /* Build configuration list for PBXNativeTarget "Artistico" */;
+			buildConfigurationList = E18FB6B71DD990A70056004F /* Build configuration list for PBXNativeTarget "Artistico" */;
 			buildPhases = (
-				E1C0ED531AB603B8002C3583 /* Sources */,
-				E1C0ED541AB603B8002C3583 /* Frameworks */,
-				E1C0ED551AB603B8002C3583 /* Resources */,
+				9EE690C7CF7B2F4A153E20BD /* [CP] Check Pods Manifest.lock */,
+				E18FB6931DD990A70056004F /* Sources */,
+				E18FB6941DD990A70056004F /* Frameworks */,
+				E18FB6951DD990A70056004F /* Resources */,
+				9CFF11F0C390879E2904588B /* [CP] Embed Pods Frameworks */,
+				10DF43DBCC7E7B7838ABDED6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,46 +173,52 @@
 			);
 			name = Artistico;
 			productName = Artistico;
-			productReference = E1C0ED571AB603B8002C3583 /* Artistico.app */;
+			productReference = E18FB6971DD990A70056004F /* Artistico.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E1C0ED6E1AB603B8002C3583 /* ArtisticoTests */ = {
+		E18FB6AD1DD990A70056004F /* ArtisticoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1C0ED7C1AB603B8002C3583 /* Build configuration list for PBXNativeTarget "ArtisticoTests" */;
+			buildConfigurationList = E18FB6BA1DD990A70056004F /* Build configuration list for PBXNativeTarget "ArtisticoTests" */;
 			buildPhases = (
-				E1C0ED6B1AB603B8002C3583 /* Sources */,
-				E1C0ED6C1AB603B8002C3583 /* Frameworks */,
-				E1C0ED6D1AB603B8002C3583 /* Resources */,
+				C39515F31A2A93620C9CC5CA /* [CP] Check Pods Manifest.lock */,
+				E18FB6AA1DD990A70056004F /* Sources */,
+				E18FB6AB1DD990A70056004F /* Frameworks */,
+				E18FB6AC1DD990A70056004F /* Resources */,
+				381FA44FEAFC19AB19337B85 /* [CP] Embed Pods Frameworks */,
+				AE9CF216C8DAE8714809DF29 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E1C0ED711AB603B8002C3583 /* PBXTargetDependency */,
+				E18FB6B01DD990A70056004F /* PBXTargetDependency */,
 			);
 			name = ArtisticoTests;
 			productName = ArtisticoTests;
-			productReference = E1C0ED6F1AB603B8002C3583 /* ArtisticoTests.xctest */;
+			productReference = E18FB6AE1DD990A70056004F /* ArtisticoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E1C0ED4F1AB603B8002C3583 /* Project object */ = {
+		E18FB68F1DD990A70056004F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = kaushlendra;
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = kaushal;
 				TargetAttributes = {
-					E1C0ED561AB603B8002C3583 = {
-						CreatedOnToolsVersion = 6.1;
+					E18FB6961DD990A70056004F = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
 					};
-					E1C0ED6E1AB603B8002C3583 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = E1C0ED561AB603B8002C3583;
+					E18FB6AD1DD990A70056004F = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E18FB6961DD990A70056004F;
 					};
 				};
 			};
-			buildConfigurationList = E1C0ED521AB603B8002C3583 /* Build configuration list for PBXProject "Artistico" */;
+			buildConfigurationList = E18FB6921DD990A70056004F /* Build configuration list for PBXProject "Artistico" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -179,29 +226,29 @@
 				en,
 				Base,
 			);
-			mainGroup = E1C0ED4E1AB603B8002C3583;
-			productRefGroup = E1C0ED581AB603B8002C3583 /* Products */;
+			mainGroup = E18FB68E1DD990A70056004F;
+			productRefGroup = E18FB6981DD990A70056004F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1C0ED561AB603B8002C3583 /* Artistico */,
-				E1C0ED6E1AB603B8002C3583 /* ArtisticoTests */,
+				E18FB6961DD990A70056004F /* Artistico */,
+				E18FB6AD1DD990A70056004F /* ArtisticoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E1C0ED551AB603B8002C3583 /* Resources */ = {
+		E18FB6951DD990A70056004F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C0ED651AB603B8002C3583 /* Main.storyboard in Resources */,
-				E1C0ED6A1AB603B8002C3583 /* LaunchScreen.xib in Resources */,
-				E1C0ED671AB603B8002C3583 /* Images.xcassets in Resources */,
+				E18FB6A81DD990A70056004F /* LaunchScreen.storyboard in Resources */,
+				E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */,
+				E18FB6A01DD990A70056004F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1C0ED6D1AB603B8002C3583 /* Resources */ = {
+		E18FB6AC1DD990A70056004F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -210,59 +257,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10DF43DBCC7E7B7838ABDED6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Artistico/Pods-Artistico-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		381FA44FEAFC19AB19337B85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CFF11F0C390879E2904588B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Artistico/Pods-Artistico-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EE690C7CF7B2F4A153E20BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE9CF216C8DAE8714809DF29 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C39515F31A2A93620C9CC5CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		E1C0ED531AB603B8002C3583 /* Sources */ = {
+		E18FB6931DD990A70056004F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C0ED621AB603B8002C3583 /* ViewController.swift in Sources */,
-				E1C0ED601AB603B8002C3583 /* Artistico.xcdatamodeld in Sources */,
-				E1C0ED5D1AB603B8002C3583 /* AppDelegate.swift in Sources */,
+				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
+				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E18FB69D1DD990A70056004F /* ViewController.swift in Sources */,
+				E18FB6C41DD995740056004F /* LoginView.swift in Sources */,
+				E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1C0ED6B1AB603B8002C3583 /* Sources */ = {
+		E18FB6AA1DD990A70056004F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C0ED761AB603B8002C3583 /* ArtisticoTests.swift in Sources */,
+				E18FB6B31DD990A70056004F /* ArtisticoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E1C0ED711AB603B8002C3583 /* PBXTargetDependency */ = {
+		E18FB6B01DD990A70056004F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E1C0ED561AB603B8002C3583 /* Artistico */;
-			targetProxy = E1C0ED701AB603B8002C3583 /* PBXContainerItemProxy */;
+			target = E18FB6961DD990A70056004F /* Artistico */;
+			targetProxy = E18FB6AF1DD990A70056004F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E1C0ED631AB603B8002C3583 /* Main.storyboard */ = {
+		E18FB69E1DD990A70056004F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1C0ED641AB603B8002C3583 /* Base */,
+				E18FB69F1DD990A70056004F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		E1C0ED681AB603B8002C3583 /* LaunchScreen.xib */ = {
+		E18FB6A61DD990A70056004F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1C0ED691AB603B8002C3583 /* Base */,
+				E18FB6A71DD990A70056004F /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E1C0ED771AB603B8002C3583 /* Debug */ = {
+		E18FB6B51DD990A70056004F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -270,41 +413,49 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E1C0ED781AB603B8002C3583 /* Release */ = {
+		E18FB6B61DD990A70056004F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -312,82 +463,89 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		E1C0ED7A1AB603B8002C3583 /* Debug */ = {
+		E18FB6B81DD990A70056004F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16C46A9AE6231A034F7C25C5 /* Pods-Artistico.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		E1C0ED7B1AB603B8002C3583 /* Release */ = {
+		E18FB6B91DD990A70056004F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		E1C0ED7D1AB603B8002C3583 /* Debug */ = {
+		E18FB6BB1DD990A70056004F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72EB938547D59230101F4B35 /* Pods-ArtisticoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = ArtisticoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HM.ArtisticoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artistico.app/Artistico";
 			};
 			name = Debug;
 		};
-		E1C0ED7E1AB603B8002C3583 /* Release */ = {
+		E18FB6BC1DD990A70056004F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB1CFCCCEF2DC5B3D09DAE7C /* Pods-ArtisticoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = ArtisticoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HM.ArtisticoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artistico.app/Artistico";
 			};
 			name = Release;
@@ -395,47 +553,45 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1C0ED521AB603B8002C3583 /* Build configuration list for PBXProject "Artistico" */ = {
+		E18FB6921DD990A70056004F /* Build configuration list for PBXProject "Artistico" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1C0ED771AB603B8002C3583 /* Debug */,
-				E1C0ED781AB603B8002C3583 /* Release */,
+				E18FB6B51DD990A70056004F /* Debug */,
+				E18FB6B61DD990A70056004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1C0ED791AB603B8002C3583 /* Build configuration list for PBXNativeTarget "Artistico" */ = {
+		E18FB6B71DD990A70056004F /* Build configuration list for PBXNativeTarget "Artistico" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1C0ED7A1AB603B8002C3583 /* Debug */,
-				E1C0ED7B1AB603B8002C3583 /* Release */,
+				E18FB6B81DD990A70056004F /* Debug */,
+				E18FB6B91DD990A70056004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		E1C0ED7C1AB603B8002C3583 /* Build configuration list for PBXNativeTarget "ArtisticoTests" */ = {
+		E18FB6BA1DD990A70056004F /* Build configuration list for PBXNativeTarget "ArtisticoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1C0ED7D1AB603B8002C3583 /* Debug */,
-				E1C0ED7E1AB603B8002C3583 /* Release */,
+				E18FB6BB1DD990A70056004F /* Debug */,
+				E18FB6BC1DD990A70056004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E1C0ED5E1AB603B8002C3583 /* Artistico.xcdatamodeld */ = {
+		E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E1C0ED5F1AB603B8002C3583 /* Artistico.xcdatamodel */,
+				E18FB6A21DD990A70056004F /* Artistico.xcdatamodel */,
 			);
-			currentVersion = E1C0ED5F1AB603B8002C3583 /* Artistico.xcdatamodel */;
+			currentVersion = E18FB6A21DD990A70056004F /* Artistico.xcdatamodel */;
 			path = Artistico.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = E1C0ED4F1AB603B8002C3583 /* Project object */;
+	rootObject = E18FB68F1DD990A70056004F /* Project object */;
 }

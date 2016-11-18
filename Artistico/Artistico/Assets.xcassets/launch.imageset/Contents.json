@@ -1,0 +1,27 @@
+{
+  "images" : [
+    {
+      "alignment-insets" : {
+        "top" : 0,
+        "left" : 100,
+        "bottom" : 0,
+        "right" : 0
+      },
+      "idiom" : "universal",
+      "filename" : "images.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

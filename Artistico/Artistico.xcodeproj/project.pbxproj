@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		70328069F1CF2867EF3DC592 /* Pods_ArtisticoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */; };
 		DBF86A762E532BD44317943A /* Pods_Artistico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */; };
+		E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3111DE07BD600F55D57 /* Gradiant.swift */; };
+		E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */; };
+		E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3151DE0B9C900F55D57 /* Constants.swift */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB69D1DD990A70056004F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69C1DD990A70056004F /* ViewController.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 		87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artistico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1CFCCCEF2DC5B3D09DAE7C /* Pods-ArtisticoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artistico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artistico/Pods-Artistico.release.xcconfig"; sourceTree = "<group>"; };
+		E10FE3111DE07BD600F55D57 /* Gradiant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gradiant.swift; path = utility/Gradiant.swift; sourceTree = SOURCE_ROOT; };
+		E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTableViewCell.swift; path = Login/LoginTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		E10FE3151DE0B9C900F55D57 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18FB69C1DD990A70056004F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +98,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E10FE3101DE07B1100F55D57 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				E10FE3111DE07BD600F55D57 /* Gradiant.swift */,
+				E10FE3151DE0B9C900F55D57 /* Constants.swift */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
 		E18FB68E1DD990A70056004F = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +130,7 @@
 		E18FB6991DD990A70056004F /* Artistico */ = {
 			isa = PBXGroup;
 			children = (
+				E10FE3101DE07B1100F55D57 /* utility */,
 				E18FB6BE1DD9919F0056004F /* login */,
 				E18FB6BD1DD991820056004F /* appBase */,
 				E18FB6A41DD990A70056004F /* Assets.xcassets */,
@@ -149,6 +165,7 @@
 			children = (
 				E18FB6C11DD9954A0056004F /* LoginViewController.swift */,
 				E18FB6C31DD995740056004F /* LoginView.swift */,
+				E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -357,9 +374,12 @@
 			files = (
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,
 				E18FB69D1DD990A70056004F /* ViewController.swift in Sources */,
 				E18FB6C41DD995740056004F /* LoginView.swift in Sources */,
 				E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */,
+				E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */,
+				E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +589,7 @@
 				E18FB6B91DD990A70056004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E18FB6BA1DD990A70056004F /* Build configuration list for PBXNativeTarget "ArtisticoTests" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +598,7 @@
 				E18FB6BC1DD990A70056004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

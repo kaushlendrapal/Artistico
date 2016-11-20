@@ -118,7 +118,7 @@
                                         <rect key="frame" x="0.0" y="195" width="375" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IOM-rF-qs9" id="fiC-N0-eZb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="234.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qZ-cO-C0a">
@@ -204,7 +204,7 @@
                                         <rect key="frame" x="0.0" y="430" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="abQ-3N-NRV" id="8pd-kK-xwV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbq-gs-9Cf">
@@ -248,7 +248,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.78431372549019607" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="RSv-DE-BiM" secondAttribute="bottom" id="2lx-Nr-H2C"/>
+                            <constraint firstAttribute="bottom" secondItem="RSv-DE-BiM" secondAttribute="bottom" identifier="tableViewBottomIdentifier" id="2lx-Nr-H2C"/>
                             <constraint firstAttribute="trailing" secondItem="RSv-DE-BiM" secondAttribute="trailing" id="56x-9t-rbH"/>
                             <constraint firstItem="bPC-Ug-Ywj" firstAttribute="top" secondItem="30T-K7-45p" secondAttribute="bottom" id="71Z-fh-e90"/>
                             <constraint firstItem="bPC-Ug-Ywj" firstAttribute="top" secondItem="RSv-DE-BiM" secondAttribute="bottom" id="E6q-Ai-r8M"/>

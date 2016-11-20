@@ -11,8 +11,8 @@ import UIKit
 
 struct RegisteredCellClassIdentifier {
     
-    let loginTableCell:String = "LoginTableViewCell"
-    let loginTableActionCell:String = "LoginTableViewActionCell"
+   static let loginTableCell:String = "LoginTableViewCell"
+   static let loginTableActionCell:String = "LoginTableViewActionCell"
     
 }
 
@@ -62,6 +62,53 @@ class LoginViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+    }
+    
+    func keyboardWillShow(notification:NSNotification?) -> Void {
+        
+        if let noti = notification {
+            
+            let infoDictionary = noti.userInfo
+            let keyboardSize: CGSize? = (infoDictionary![UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size
+            
+            if let tableBottomConstraint =
+            view.constraints.filter({ (testConstraint:NSLayoutConstraint) -> Bool in
+                return testConstraint.identifier == "tableViewBottomIdentifier"
+            }).first {
+                tableBottomConstraint.constant = (keyboardSize?.height)!
+            }
+            
+            UIView.animate(withDuration: 0.35) { [unowned self] in
+                self.tableView.setNeedsUpdateConstraints()
+                self.tableView.setContentOffset(CGPoint.zero, animated: false)
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification:NSNotification?) -> Void {
+        
+        if let noti = notification {
+            
+            _ = noti.userInfo
+//            let keyboardSize: CGSize? = (infoDictionary![UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size
+            if let tableBottomConstraint =
+                view.constraints.filter({ (testConstraint:NSLayoutConstraint) -> Bool in
+                    return testConstraint.identifier == "tableViewBottomIdentifier"
+                }).first {
+                tableBottomConstraint.constant = 0
+            }
+            
+            UIView.animate(withDuration: 0.35) { [unowned self] in
+                
+                self.tableView.setNeedsUpdateConstraints()
+                self.tableView.setContentOffset(CGPoint.zero, animated: false)
+            }
+        }
+        
     }
 
     /*
@@ -73,6 +120,13 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self, name:Notification.Name.UIKeyboardWillShow , object: nil)
+        NotificationCenter.default.removeObserver(self, name:Notification.Name.UIKeyboardWillHide , object: nil)
+        
+    }
 
 }
 
@@ -94,14 +148,14 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             
-            loginTableViewCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier().loginTableCell, for: indexPath) as! LoginTableViewCell
+            loginTableViewCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableCell, for: indexPath) as! LoginTableViewCell
             loginTableViewCell.configureLoginTableViewCell()
             
             return loginTableViewCell
             
         } else if indexPath.row == 1 {
             
-            loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier().loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
+            loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
             loginTableViewActionCell.configureLoginTableActionCell()
             
             return loginTableViewActionCell;

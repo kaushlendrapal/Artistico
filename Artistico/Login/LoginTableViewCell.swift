@@ -40,7 +40,6 @@ class LoginTableViewCell: UITableViewCell {
         userNameTextField.attributedPlaceholder = NSAttributedString(string: "eg@gmail.com", attributes: [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName : UIFont.systemFont(ofSize: 12) ])
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "enter password", attributes: [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName : UIFont.systemFont(ofSize: 12) ])
-
     }
 
 }

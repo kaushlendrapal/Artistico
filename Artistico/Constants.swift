@@ -9,6 +9,19 @@
 import Foundation
 import UIKit
 
+struct Global {
+    
+    static let kEmptyString = ""
+}
+
+
+struct RestConstraint {
+    
+    static let baseURLString = "https://example.com"
+    
+}
+
+
 struct TextStyleGuide {
     
     static let kHelveticaNeueRegular = "HelveticaNeue"
@@ -28,18 +41,23 @@ struct TextStyleGuide {
     
 }
 
+
 struct ColorStyle {
+    
     static let backgroundColor:UIColor = UIColor.hexStringToUIColor(hex: "00C895")
     
 }
+
 
 struct LayoutPadding {
     
 }
 
+
 struct GenericErrorMsg {
     
 }
+
 
 struct ActionTitle {
     
@@ -48,6 +66,7 @@ struct ActionTitle {
     static let kInternetConnectionNotAvailable = NSLocalizedString("Internet connection appears to be offline", comment:"Internet connection appears to be offline")
 
 }
+
 
 struct TableActionTitle {
     static let kDelete = NSLocalizedString("Delete", comment:"Delete title")

@@ -21,6 +21,10 @@
 		E18FB6B31DD990A70056004F /* ArtisticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6B21DD990A70056004F /* ArtisticoTests.swift */; };
 		E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C11DD9954A0056004F /* LoginViewController.swift */; };
 		E18FB6C41DD995740056004F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C31DD995740056004F /* LoginView.swift */; };
+		E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF141DE4552500CA89B5 /* AccountManager.swift */; };
+		E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF171DE455BB00CA89B5 /* User.swift */; };
+		E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF1A1DE456BA00CA89B5 /* HTTPRestClient.swift */; };
+		E1E0FF1D1DE45C1E00CA89B5 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF1C1DE45C1E00CA89B5 /* UserRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		E18FB6B41DD990A70056004F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18FB6C11DD9954A0056004F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		E18FB6C31DD995740056004F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = Login/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		E1E0FF141DE4552500CA89B5 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		E1E0FF171DE455BB00CA89B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1E0FF1A1DE456BA00CA89B5 /* HTTPRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestClient.swift; sourceTree = "<group>"; };
+		E1E0FF1C1DE45C1E00CA89B5 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,9 @@
 		E18FB6991DD990A70056004F /* Artistico */ = {
 			isa = PBXGroup;
 			children = (
+				E1E0FF191DE4569A00CA89B5 /* Network */,
+				E1E0FF161DE4557100CA89B5 /* Account */,
+				E1E0FF131DE4538300CA89B5 /* Model */,
 				E10FE3101DE07B1100F55D57 /* utility */,
 				E18FB6BE1DD9919F0056004F /* login */,
 				E18FB6BD1DD991820056004F /* appBase */,
@@ -168,6 +179,31 @@
 				E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		E1E0FF131DE4538300CA89B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1E0FF171DE455BB00CA89B5 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E1E0FF161DE4557100CA89B5 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				E1E0FF141DE4552500CA89B5 /* AccountManager.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		E1E0FF191DE4569A00CA89B5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E1E0FF1A1DE456BA00CA89B5 /* HTTPRestClient.swift */,
+				E1E0FF1C1DE45C1E00CA89B5 /* UserRouter.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,10 +411,14 @@
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
 				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,
+				E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */,
 				E18FB69D1DD990A70056004F /* ViewController.swift in Sources */,
 				E18FB6C41DD995740056004F /* LoginView.swift in Sources */,
+				E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */,
+				E1E0FF1D1DE45C1E00CA89B5 /* UserRouter.swift in Sources */,
 				E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */,
 				E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */,
+				E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */,
 				E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

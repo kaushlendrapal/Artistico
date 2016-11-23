@@ -50,11 +50,7 @@ class LoginViewController: UIViewController {
     
     func setUpView() -> Void {
         
-        // do not use register cell for storyboard cell
-//        self.tableView.register(LoginTableViewCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier().loginTableCell)
-//        self.tableView.register(LoginTableViewActionCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier().loginTableActionCell)
-        
-         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 70.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
@@ -93,7 +89,7 @@ class LoginViewController: UIViewController {
         
         if let noti = notification {
             
-            _ = noti.userInfo
+//            _ = noti.userInfo
 //            let keyboardSize: CGSize? = (infoDictionary![UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size
             if let tableBottomConstraint =
                 view.constraints.filter({ (testConstraint:NSLayoutConstraint) -> Bool in

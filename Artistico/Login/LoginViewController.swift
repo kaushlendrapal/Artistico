@@ -164,9 +164,23 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func submitButtonTapped(sender :Any) {
         
-        let user:User = User.init(name: "kaushal.workboard@gmail.com", password: "Workboard1")
-        HTTPRestClient.DefaultRestClient.loginUser(withUser:user)
-        showMainViewController()
+        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", password: "Workboard1")
+        HTTPRestClient.DefaultRestClient.loginUser(withUser: user, completionHandler: {
+             result in
+            
+            switch result {
+            case .success:
+                if let loginUser = result.value as? UserLogin  {
+                    print("JSON: \(loginUser)")
+                    DispatchQueue.main.async(execute: {
+                        self.showMainViewController()
+                    })
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
+        
     }
     
     func showMainViewController() -> Void {

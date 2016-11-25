@@ -58,25 +58,39 @@ final class HTTPRestClient: NSObject {
         super.init()
     }
     
-    func loginUser(withUser user:User) -> Void {
+    func loginUser(withUser user:UserLogin, completionHandler:@escaping ((_ result:Result<Any>)->(Void))) -> Void {
         
-        let param:[String: Any] = [:] //["username":user.userName, "password" : user.password, "client_key": kClientKey, "grant_type" : kAPILoginGrantType]
+        let param:[String: Any] = ["username":user.userName, "password" : user.password, "client_key": kClientKey, "grant_type" : kAPILoginGrantType]
         
         
         Alamofire.request(UserRouter.loginUser(parameters:param)).responseObject(queue: utilityQueue) { (response:DataResponse<RootJSON>) in
             
             debugPrint(response)
             
-            if let rootJson:RootJSON = response.result.value {
-                
-                if let userJson:[String: Any] = rootJson.actualJSONData {
-                    // end of common global JSON Object
-                    if let userObjJson: [String: Any] = userJson["user"] as? [String : Any] {
-                        let responseObject = User(representation: userObjJson)!
-                        print("User: { username: \(responseObject.userName), password: \(responseObject.password) }")
+            switch response.result {
+            case .success:
+                if let rootJson:RootJSON = response.result.value {
+                    
+                    if let userJson:[String: Any] = rootJson.actualJSONData {
+                        // end of common global JSON Object
+                        if let userObjJson: [String: Any] = userJson["user"] as? [String : Any] {
+                            let responseObject = UserLogin(representation: userObjJson)!
+                            responseObject.accessToken = userJson["access_token"] as? String
+                            responseObject.refreshToken = userJson["refresh_token"]as? String
+                            responseObject.tokenType = userJson["token_type"]as? String
+                            responseObject.expiresIn = userJson["expires_in"]as? String
+                            
+                            print("User: { username: \(responseObject.userName), accessToken: \(responseObject.accessToken) }")
+                            completionHandler(.success(responseObject))
+                        }
                     }
                 }
+            case .failure(let error):
+                print(error)
+                completionHandler(.failure(error))
             }
+            
+
         }
         
         /*

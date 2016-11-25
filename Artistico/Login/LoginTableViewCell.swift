@@ -95,9 +95,7 @@ class LoginTableViewActionCell: UITableViewCell {
     }
     
     @IBAction func submitButtonTapped(sander:Any) -> Void {
-        
-        let user:User = User.init(name: "kaushal.workboard@gmail.com", password: "Workboard1")
-        HTTPRestClient.DefaultRestClient.loginUser(withUser:user)
+        return
     }
     
 }

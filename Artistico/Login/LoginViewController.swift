@@ -19,6 +19,7 @@ struct RegisteredCellClassIdentifier {
 
 class LoginViewController: UIViewController {
     
+    var mainViewController : ViewController?
     @IBOutlet var tableView:UITableView!
     
     
@@ -152,6 +153,7 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             
             loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
+            loginTableViewActionCell?.submitButton.addTarget(self, action: #selector(submitButtonTapped(sender:)), for: .touchUpInside)
             loginTableViewActionCell.configureLoginTableActionCell()
             
             return loginTableViewActionCell;
@@ -159,6 +161,25 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         
         return UITableViewCell.init()
     }
+    
+    @IBAction func submitButtonTapped(sender :Any) {
+        
+        let user:User = User.init(name: "kaushal.workboard@gmail.com", password: "Workboard1")
+        HTTPRestClient.DefaultRestClient.loginUser(withUser:user)
+        showMainViewController()
+    }
+    
+    func showMainViewController() -> Void {
+        
+        if let mainVC = mainViewController {
+            show(mainVC, sender: nil)
+        } else {
+            let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
+            self.mainViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+            show(self.mainViewController!, sender: nil)
+        }
+    }
+    
 }
 
 extension LoginViewController {

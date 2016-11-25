@@ -11,15 +11,16 @@ import Alamofire
 
 enum UserRouter: URLRequestConvertible {
     
+    case loginUser(parameters: Parameters)
     case createUser(parameters: Parameters)
     case readUser(username: String)
     case updateUser(username: String, parameters: Parameters)
     case destroyUser(username: String)
     
-    static let baseURLString = "https://example.com"
-    
     var method: HTTPMethod {
         switch self {
+        case .loginUser:
+            return .post
         case .createUser:
             return .post
         case .readUser:
@@ -33,6 +34,8 @@ enum UserRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
+        case .loginUser:
+            return "/user/login"
         case .createUser:
             return "/users"
         case .readUser(let username):
@@ -53,6 +56,8 @@ enum UserRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         switch self {
+        case .loginUser(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         case .createUser(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         case .updateUser(_, let parameters):

@@ -10,24 +10,36 @@ import UIKit
 import Alamofire
 import CoreData
 
-class User: NSObject, ResponseObjectSerializable {
+struct UserJson {
+    static let userNeme = "lastname"
+}
+
+
+ final class User: NSObject, ModelObjectSerializable {
     
     private(set) var userName:String = Global.kEmptyString
+    private(set) var password:String = Global.kEmptyString
+
     
     override var description: String {
         return "User { username : \(userName)" +
-                "password : (pass)}"
+                "password : \(password)}"
     }
     
-    required init?(response: HTTPURLResponse, representation: Any){
+     init?(representation: Any) {
         
         guard
             let representation = representation as?[String : Any],
-            let name = representation["name"] as?String
+            let name = representation[UserJson.userNeme] as?String
             
         else { return nil }
         
         self.userName = name
+    }
+    
+    init(name:String, password:String) {
+        self.userName = name
+        self.password = password
     }
     
 }

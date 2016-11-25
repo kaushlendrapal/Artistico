@@ -87,8 +87,8 @@ class LoginViewController: UIViewController {
     
     func keyboardWillHide(notification:NSNotification?) -> Void {
         
-        if let noti = notification {
-            
+//        if let noti = notification {
+        
 //            _ = noti.userInfo
 //            let keyboardSize: CGSize? = (infoDictionary![UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size
             if let tableBottomConstraint =
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
                 self.tableView.setNeedsUpdateConstraints()
                 self.tableView.setContentOffset(CGPoint.zero, animated: false)
             }
-        }
+//        }
         
     }
 

@@ -17,7 +17,7 @@ struct Global {
 
 struct RestConstraint {
     
-    static let baseURLString = "https://example.com"
+    static let baseURLString = "http://54.215.151.55/wb/api/v1"
     
 }
 

@@ -63,7 +63,7 @@ final class HTTPRestClient: NSObject {
         let param:[String: Any] = ["username":user.userName, "password" : user.password, "client_key": kClientKey, "grant_type" : kAPILoginGrantType]
         
         
-        Alamofire.request(UserRouter.loginUser(parameters:param)).responseObject(queue: utilityQueue) { (response:DataResponse<RootJSON>) in
+        Alamofire.request(UserRouter.loginUser(parameters:param)).responseCustomJSON(queue: utilityQueue) { (response:DataResponse<RootJSON>) in
             
             debugPrint(response)
             
@@ -93,22 +93,6 @@ final class HTTPRestClient: NSObject {
 
         }
         
-        /*
-        Alamofire.request(UserRouter.loginUser(parameters:param)).responseJSON(queue: utilityQueue) { response in
-            
-            print("Request: \(response.request)")
-            
-            switch response.result {
-            case .success:
-                if let json = response.result.value {
-                    print("JSON: \(json)")
-                }
-            case .failure(let error):
-                print(error)
-            }
-            
-        }
-  */
     }
 
 }
@@ -116,7 +100,7 @@ final class HTTPRestClient: NSObject {
 extension DataRequest {
     
     @discardableResult
-    func responseObject<T: ResponseObjectSerializable>(
+    func responseCustomJSON<T: ResponseObjectSerializable>(
         queue: DispatchQueue? = nil,
         completionHandler: @escaping (DataResponse<T>) -> Void)
         -> Self

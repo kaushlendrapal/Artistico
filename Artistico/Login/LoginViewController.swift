@@ -19,7 +19,7 @@ struct RegisteredCellClassIdentifier {
 
 class LoginViewController: UIViewController {
     
-    var mainViewController : ViewController?
+    var rootViewController : RootViewController?
     @IBOutlet var tableView:UITableView!
     
     
@@ -185,12 +185,12 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     func showMainViewController() -> Void {
         
-        if let mainVC = mainViewController {
+        if let mainVC = rootViewController {
             show(mainVC, sender: nil)
         } else {
             let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
-            self.mainViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
-            show(self.mainViewController!, sender: nil)
+            self.rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as? RootViewController
+            show(self.rootViewController!, sender: nil)
         }
     }
     

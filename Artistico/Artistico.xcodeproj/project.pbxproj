@@ -10,12 +10,16 @@
 		70328069F1CF2867EF3DC592 /* Pods_ArtisticoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */; };
 		DBF86A762E532BD44317943A /* Pods_Artistico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */; };
 		E106CFCF1DE71BA300B24FCA /* RootJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106CFCE1DE71BA300B24FCA /* RootJSON.swift */; };
-		E106CFD21DE837E000B24FCA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106CFD11DE837E000B24FCA /* MainViewController.swift */; };
 		E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3111DE07BD600F55D57 /* Gradiant.swift */; };
 		E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */; };
 		E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3151DE0B9C900F55D57 /* Constants.swift */; };
+		E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338801DEC06D000D6ECDD /* UITableView.swift */; };
+		E15338831DEC070100D6ECDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338821DEC070100D6ECDD /* String.swift */; };
+		E15338851DEC075E00D6ECDD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338841DEC075E00D6ECDD /* UIColor.swift */; };
+		E15338881DEC07E700D6ECDD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338861DEC07E700D6ECDD /* MainViewController.swift */; };
+		E15338891DEC07E700D6ECDD /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338871DEC07E700D6ECDD /* SlideMenuController.swift */; };
+		E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153388A1DEC08C600D6ECDD /* RootViewController.swift */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
-		E18FB69D1DD990A70056004F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69C1DD990A70056004F /* ViewController.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
 		E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E18FB6A41DD990A70056004F /* Assets.xcassets */; };
@@ -47,13 +51,17 @@
 		AB1CFCCCEF2DC5B3D09DAE7C /* Pods-ArtisticoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticoTests/Pods-ArtisticoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artistico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artistico/Pods-Artistico.release.xcconfig"; sourceTree = "<group>"; };
 		E106CFCE1DE71BA300B24FCA /* RootJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootJSON.swift; sourceTree = "<group>"; };
-		E106CFD11DE837E000B24FCA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E10FE3111DE07BD600F55D57 /* Gradiant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gradiant.swift; path = utility/Gradiant.swift; sourceTree = SOURCE_ROOT; };
 		E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTableViewCell.swift; path = Login/LoginTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E10FE3151DE0B9C900F55D57 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
+		E15338801DEC06D000D6ECDD /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = utility/extension/UITableView.swift; sourceTree = SOURCE_ROOT; };
+		E15338821DEC070100D6ECDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = utility/extension/String.swift; sourceTree = SOURCE_ROOT; };
+		E15338841DEC075E00D6ECDD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = utility/extension/UIColor.swift; sourceTree = SOURCE_ROOT; };
+		E15338861DEC07E700D6ECDD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = home/MainViewController.swift; sourceTree = "<group>"; };
+		E15338871DEC07E700D6ECDD /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = home/SlideMenuController.swift; sourceTree = "<group>"; };
+		E153388A1DEC08C600D6ECDD /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = home/RootViewController.swift; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E18FB69C1DD990A70056004F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E18FB6A21DD990A70056004F /* Artistico.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Artistico.xcdatamodel; sourceTree = "<group>"; };
 		E18FB6A41DD990A70056004F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,7 +121,9 @@
 		E106CFD01DE836DD00B24FCA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E106CFD11DE837E000B24FCA /* MainViewController.swift */,
+				E153388A1DEC08C600D6ECDD /* RootViewController.swift */,
+				E15338861DEC07E700D6ECDD /* MainViewController.swift */,
+				E15338871DEC07E700D6ECDD /* SlideMenuController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -121,10 +131,21 @@
 		E10FE3101DE07B1100F55D57 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				E153387F1DEC067600D6ECDD /* Extensions */,
 				E10FE3111DE07BD600F55D57 /* Gradiant.swift */,
 				E10FE3151DE0B9C900F55D57 /* Constants.swift */,
 			);
 			name = utility;
+			sourceTree = "<group>";
+		};
+		E153387F1DEC067600D6ECDD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E15338841DEC075E00D6ECDD /* UIColor.swift */,
+				E15338821DEC070100D6ECDD /* String.swift */,
+				E15338801DEC06D000D6ECDD /* UITableView.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		E18FB68E1DD990A70056004F = {
@@ -178,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				E18FB69A1DD990A70056004F /* AppDelegate.swift */,
-				E18FB69C1DD990A70056004F /* ViewController.swift */,
 				E18FB69E1DD990A70056004F /* Main.storyboard */,
 			);
 			name = appBase;
@@ -424,17 +444,21 @@
 			files = (
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */,
+				E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */,
 				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,
+				E15338891DEC07E700D6ECDD /* SlideMenuController.swift in Sources */,
 				E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */,
-				E18FB69D1DD990A70056004F /* ViewController.swift in Sources */,
+				E15338851DEC075E00D6ECDD /* UIColor.swift in Sources */,
+				E15338881DEC07E700D6ECDD /* MainViewController.swift in Sources */,
 				E18FB6C41DD995740056004F /* LoginView.swift in Sources */,
 				E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */,
-				E106CFD21DE837E000B24FCA /* MainViewController.swift in Sources */,
 				E1E0FF1D1DE45C1E00CA89B5 /* UserRouter.swift in Sources */,
 				E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */,
 				E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */,
 				E106CFCF1DE71BA300B24FCA /* RootJSON.swift in Sources */,
 				E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */,
+				E15338831DEC070100D6ECDD /* String.swift in Sources */,
 				E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

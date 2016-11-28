@@ -9,14 +9,17 @@
 import UIKit
 
 class RootViewController: UIViewController {
-    
-    var loginViewController : LoginViewController?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setNavigationBarItem()
+       navigationController?.navigationBar.isHidden = false;
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,20 +28,41 @@ class RootViewController: UIViewController {
     }
 
 
-    @IBAction func loginButtonClicked(sender :Any) {
+}
+
+extension RootViewController : SlideMenuControllerDelegate {
     
-        if let loginVC = loginViewController {
-            show(loginVC, sender: nil)
-            
-        } else {
-        
-            let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
-            
-            self.loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-            
-            show(self.loginViewController!, sender: nil)
-        }
+    func leftWillOpen() {
+        print("SlideMenuControllerDelegate: leftWillOpen")
     }
     
+    func leftDidOpen() {
+        print("SlideMenuControllerDelegate: leftDidOpen")
+    }
+    
+    func leftWillClose() {
+        print("SlideMenuControllerDelegate: leftWillClose")
+    }
+    
+    func leftDidClose() {
+        print("SlideMenuControllerDelegate: leftDidClose")
+    }
+    
+    func rightWillOpen() {
+        print("SlideMenuControllerDelegate: rightWillOpen")
+    }
+    
+    func rightDidOpen() {
+        print("SlideMenuControllerDelegate: rightDidOpen")
+    }
+    
+    func rightWillClose() {
+        print("SlideMenuControllerDelegate: rightWillClose")
+    }
+    
+    func rightDidClose() {
+        print("SlideMenuControllerDelegate: rightDidClose")
+    }
 }
+
 

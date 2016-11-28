@@ -324,10 +324,22 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    open func isTagetViewController() -> Bool {
-        // Function to determine the target ViewController
-        // Please to override it if necessary
-        return true
+//    open func isTagetViewController() -> Bool {
+//        // Function to determine the target ViewController
+//        // Please to override it if necessary
+//        return true
+//    }
+    
+    func isTagetViewController() -> Bool {
+        if let vc = UIApplication.topViewController() {
+            if vc is RootViewController ||
+                vc is HelpViewController ||
+                vc is ProfileSettingViewController ||
+                vc is NonMenuController {
+                return true
+            }
+        }
+        return false
     }
     
     open func track(_ trackAction: TrackAction) {

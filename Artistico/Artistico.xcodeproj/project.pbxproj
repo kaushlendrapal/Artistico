@@ -19,6 +19,13 @@
 		E15338881DEC07E700D6ECDD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338861DEC07E700D6ECDD /* MainViewController.swift */; };
 		E15338891DEC07E700D6ECDD /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338871DEC07E700D6ECDD /* SlideMenuController.swift */; };
 		E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153388A1DEC08C600D6ECDD /* RootViewController.swift */; };
+		E153388D1DEC0B5C00D6ECDD /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153388C1DEC0B5C00D6ECDD /* LeftViewController.swift */; };
+		E153388F1DEC0E5B00D6ECDD /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153388E1DEC0E5B00D6ECDD /* BaseTableViewCell.swift */; };
+		E15338921DEC106800D6ECDD /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338911DEC106800D6ECDD /* HelpViewController.swift */; };
+		E15338941DEC10D000D6ECDD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338931DEC10D000D6ECDD /* UIViewController.swift */; };
+		E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */; };
+		E153389B1DEC12C700D6ECDD /* NonMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389A1DEC12C700D6ECDD /* NonMenuController.swift */; };
+		E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389C1DEC2C8500D6ECDD /* UIApplication.swift */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -60,6 +67,13 @@
 		E15338861DEC07E700D6ECDD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = home/MainViewController.swift; sourceTree = "<group>"; };
 		E15338871DEC07E700D6ECDD /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = home/SlideMenuController.swift; sourceTree = "<group>"; };
 		E153388A1DEC08C600D6ECDD /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = home/RootViewController.swift; sourceTree = "<group>"; };
+		E153388C1DEC0B5C00D6ECDD /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftViewController.swift; path = home/LeftViewController.swift; sourceTree = "<group>"; };
+		E153388E1DEC0E5B00D6ECDD /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewCell.swift; path = home/BaseTableViewCell.swift; sourceTree = "<group>"; };
+		E15338911DEC106800D6ECDD /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = BusinessModules/Help/HelpViewController.swift; sourceTree = "<group>"; };
+		E15338931DEC10D000D6ECDD /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = utility/extension/UIViewController.swift; sourceTree = SOURCE_ROOT; };
+		E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingViewController.swift; path = BusinessModules/profile/ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		E153389A1DEC12C700D6ECDD /* NonMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonMenuController.swift; path = BusinessModules/NonMenuController.swift; sourceTree = "<group>"; };
+		E153389C1DEC2C8500D6ECDD /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = utility/extension/UIApplication.swift; sourceTree = SOURCE_ROOT; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +135,8 @@
 		E106CFD01DE836DD00B24FCA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E153388E1DEC0E5B00D6ECDD /* BaseTableViewCell.swift */,
+				E153388C1DEC0B5C00D6ECDD /* LeftViewController.swift */,
 				E153388A1DEC08C600D6ECDD /* RootViewController.swift */,
 				E15338861DEC07E700D6ECDD /* MainViewController.swift */,
 				E15338871DEC07E700D6ECDD /* SlideMenuController.swift */,
@@ -141,11 +157,47 @@
 		E153387F1DEC067600D6ECDD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E153389C1DEC2C8500D6ECDD /* UIApplication.swift */,
+				E15338931DEC10D000D6ECDD /* UIViewController.swift */,
 				E15338841DEC075E00D6ECDD /* UIColor.swift */,
 				E15338821DEC070100D6ECDD /* String.swift */,
 				E15338801DEC06D000D6ECDD /* UITableView.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E15338901DEC0FCF00D6ECDD /* businessModule */ = {
+			isa = PBXGroup;
+			children = (
+				E15338991DEC12A300D6ECDD /* nonMenuVC */,
+				E15338961DEC111C00D6ECDD /* Profile */,
+				E15338951DEC110B00D6ECDD /* Help */,
+			);
+			name = businessModule;
+			sourceTree = "<group>";
+		};
+		E15338951DEC110B00D6ECDD /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				E15338911DEC106800D6ECDD /* HelpViewController.swift */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		E15338961DEC111C00D6ECDD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		E15338991DEC12A300D6ECDD /* nonMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				E153389A1DEC12C700D6ECDD /* NonMenuController.swift */,
+			);
+			name = nonMenuVC;
 			sourceTree = "<group>";
 		};
 		E18FB68E1DD990A70056004F = {
@@ -171,6 +223,7 @@
 		E18FB6991DD990A70056004F /* Artistico */ = {
 			isa = PBXGroup;
 			children = (
+				E15338901DEC0FCF00D6ECDD /* businessModule */,
 				E106CFD01DE836DD00B24FCA /* Home */,
 				E1E0FF191DE4569A00CA89B5 /* Network */,
 				E1E0FF161DE4557100CA89B5 /* Account */,
@@ -442,24 +495,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */,
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */,
 				E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */,
 				E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */,
 				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,
 				E15338891DEC07E700D6ECDD /* SlideMenuController.swift in Sources */,
 				E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */,
+				E15338921DEC106800D6ECDD /* HelpViewController.swift in Sources */,
 				E15338851DEC075E00D6ECDD /* UIColor.swift in Sources */,
+				E153388F1DEC0E5B00D6ECDD /* BaseTableViewCell.swift in Sources */,
 				E15338881DEC07E700D6ECDD /* MainViewController.swift in Sources */,
 				E18FB6C41DD995740056004F /* LoginView.swift in Sources */,
 				E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */,
 				E1E0FF1D1DE45C1E00CA89B5 /* UserRouter.swift in Sources */,
+				E15338941DEC10D000D6ECDD /* UIViewController.swift in Sources */,
 				E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */,
 				E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */,
 				E106CFCF1DE71BA300B24FCA /* RootJSON.swift in Sources */,
 				E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */,
 				E15338831DEC070100D6ECDD /* String.swift in Sources */,
 				E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */,
+				E153389B1DEC12C700D6ECDD /* NonMenuController.swift in Sources */,
+				E153388D1DEC0B5C00D6ECDD /* LeftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

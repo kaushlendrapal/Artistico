@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.navigationBar.isHidden = true;
     }
     
     
@@ -188,10 +188,29 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         if let mainVC = rootViewController {
             show(mainVC, sender: nil)
         } else {
-            let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
-            self.rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as? RootViewController
-            show(self.rootViewController!, sender: nil)
+//            let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
+//            self.rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as? RootViewController
+            createMenuView()
+            
         }
+    }
+    
+    fileprivate func createMenuView() {
+        
+        // create viewController code...
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as? RootViewController
+        let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
+        let nvc: UINavigationController = UINavigationController(rootViewController: self.rootViewController!)
+        
+        UINavigationBar.appearance().tintColor = UIColor(hex: "00C895")
+        
+        leftViewController.mainViewController = nvc
+        
+        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: UIViewController.init())
+        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        slideMenuController.delegate = self.rootViewController
+       show(slideMenuController, sender: nil)
     }
     
 }

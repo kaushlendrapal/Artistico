@@ -22,6 +22,7 @@ struct UserJson {
  final class UserLogin: NSObject, ModelObjectSerializable {
     
     private(set) var userName:String = Global.kEmptyString
+    private(set) var email:String = Global.kEmptyString
     private(set) var password:String = Global.kEmptyString
     var accessToken:String?
     var refreshToken:String?
@@ -51,9 +52,10 @@ struct UserJson {
         self.tokenType = tokenType
     }
     
-    init(name:String, password:String) {
+    init(name:String, email:String, password:String) {
         self.userName = name
         self.password = password
+        self.email = email
     }
     
 }

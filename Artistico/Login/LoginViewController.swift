@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 struct RegisteredCellClassIdentifier {
     
@@ -164,7 +164,7 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func submitButtonTapped(sender :Any) {
         
-        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", password: "Workboard1")
+        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", email: "kaushal.workboard@gmail.com", password: "Workboard1")
         HTTPRestClient.DefaultRestClient.loginUser(withUser: user, completionHandler: {
              result in
             
@@ -238,9 +238,33 @@ extension LoginViewController {
             }
         }
     }
+}
+
+//MARK: Firebase login
+extension LoginViewController {
     
+    @IBAction func didTapSignIn(_ sender: AnyObject) {
+        // Sign In with credentials.
+        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", email: "kaushal.workboard@gmail.com", password: "Workboard1")
+        FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.signedIn(user!)
+        }
+    }
     
-    
+    func signedIn(_ user: FIRUser?) {
+        MeasurementHelper.sendLoginEvent()
+        
+        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+        AppState.sharedInstance.photoURL = user?.photoURL
+        AppState.sharedInstance.signedIn = true
+        let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
+        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
+//        performSegue(withIdentifier: Constants.Segues.SignInToFp, sender: nil)
+    }
 }
 
 

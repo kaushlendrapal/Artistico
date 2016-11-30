@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>724162736338-24jgh6mlbckck4hdue8n998lceatn871.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.724162736338-24jgh6mlbckck4hdue8n998lceatn871</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzGrsEIu_2NuChJYBhXrVKh6rL2shK4j4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>724162736338</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.artistico.app</string>
+	<key>PROJECT_ID</key>
+	<string>artistico-eceec</string>
+	<key>STORAGE_BUCKET</key>
+	<string>artistico-eceec.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:724162736338:ios:2a6ad99302903e63</string>
+	<key>DATABASE_URL</key>
+	<string>https://artistico-eceec.firebaseio.com</string>
+</dict>
+</plist>

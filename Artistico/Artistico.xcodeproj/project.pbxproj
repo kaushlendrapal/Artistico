@@ -26,6 +26,7 @@
 		E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */; };
 		E153389B1DEC12C700D6ECDD /* NonMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389A1DEC12C700D6ECDD /* NonMenuController.swift */; };
 		E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389C1DEC2C8500D6ECDD /* UIApplication.swift */; };
+		E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -74,6 +75,7 @@
 		E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingViewController.swift; path = BusinessModules/profile/ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		E153389A1DEC12C700D6ECDD /* NonMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonMenuController.swift; path = BusinessModules/NonMenuController.swift; sourceTree = "<group>"; };
 		E153389C1DEC2C8500D6ECDD /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = utility/extension/UIApplication.swift; sourceTree = SOURCE_ROOT; };
+		E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				E18FB6BD1DD991820056004F /* appBase */,
 				E18FB6A41DD990A70056004F /* Assets.xcassets */,
 				E18FB6A61DD990A70056004F /* LaunchScreen.storyboard */,
+				E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */,
 				E18FB6A91DD990A70056004F /* Info.plist */,
 				E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */,
 			);
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18FB6A81DD990A70056004F /* LaunchScreen.storyboard in Resources */,
+				E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */,
 				E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */,
 				E18FB6A01DD990A70056004F /* Main.storyboard in Resources */,
 			);

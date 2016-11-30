@@ -9,9 +9,9 @@ import UIKit
 
 enum LeftMenu: Int {
     case main = 0
-    case swift
-    case java
-    case go
+    case help1
+    case setting
+    case help
     case nonMenu
 }
 
@@ -22,7 +22,7 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Main", "Swift", "Java", "Go", "NonMenu"]
+    var menus = ["Main", "Help1", "Setting", "Help", "NonMenu"]
     var mainViewController: UIViewController!
     var swiftViewController: UIViewController!
     var javaViewController: UIViewController!
@@ -36,7 +36,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+        self.tableView.separatorColor = UIColor.white
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let swiftViewController = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as! HelpViewController
@@ -68,11 +68,11 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         switch menu {
         case .main:
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-        case .swift:
+        case .help1:
             self.slideMenuController()?.changeMainViewController(self.swiftViewController, close: true)
-        case .java:
+        case .setting:
             self.slideMenuController()?.changeMainViewController(self.javaViewController, close: true)
-        case .go:
+        case .help:
             self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
         case .nonMenu:
             self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
@@ -84,7 +84,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .main, .swift, .java, .go, .nonMenu:
+            case .main, .help1, .setting, .help, .nonMenu:
                 return BaseTableViewCell.height()
             }
         }
@@ -114,7 +114,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .main, .swift, .java, .go, .nonMenu:
+            case .main, .help1, .setting, .help, .nonMenu:
                 let cell = BaseTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: BaseTableViewCell.identifier)
                 cell.setData(menus[indexPath.row])
                 return cell

@@ -19,10 +19,10 @@ import UIKit
 }
 
 public struct SlideMenuOptions {
-    public static var leftViewWidth: CGFloat = 270.0
+    public static var leftViewWidth: CGFloat = 150.0
     public static var leftBezelWidth: CGFloat? = 16.0
-    public static var contentViewScale: CGFloat = 0.96
-    public static var contentViewOpacity: CGFloat = 0.5
+    public static var contentViewScale: CGFloat = 1.0
+    public static var contentViewOpacity: CGFloat = 0.2
     public static var contentViewDrag: Bool = false
     public static var shadowOpacity: CGFloat = 0.0
     public static var shadowRadius: CGFloat = 0.0
@@ -35,7 +35,7 @@ public struct SlideMenuOptions {
     public static var hideStatusBar: Bool = true
     public static var pointOfNoReturnWidth: CGFloat = 44.0
     public static var simultaneousGestureRecognizers: Bool = true
-	public static var opacityViewBackgroundColor: UIColor = UIColor.black
+	public static var opacityViewBackgroundColor: UIColor = UIColor.lightGray
 }
 
 open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
@@ -120,7 +120,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         view.insertSubview(mainContainerView, at: 0)
 
       var opacityframe: CGRect = view.bounds
-        let opacityOffset: CGFloat = 0
+        let opacityOffset: CGFloat = 65.0
         opacityframe.origin.y = opacityframe.origin.y + opacityOffset
         opacityframe.size.height = opacityframe.size.height - opacityOffset
         opacityView = UIView(frame: opacityframe)
@@ -133,7 +133,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         var leftFrame: CGRect = view.bounds
         leftFrame.size.width = SlideMenuOptions.leftViewWidth
         leftFrame.origin.x = leftMinOrigin();
-        let leftOffset: CGFloat = 0
+        let leftOffset: CGFloat = 65.0
         leftFrame.origin.y = leftFrame.origin.y + leftOffset
         leftFrame.size.height = leftFrame.size.height - leftOffset
         leftContainerView = UIView(frame: leftFrame)

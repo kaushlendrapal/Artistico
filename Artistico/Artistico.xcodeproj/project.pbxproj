@@ -76,6 +76,7 @@
 		E153389A1DEC12C700D6ECDD /* NonMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonMenuController.swift; path = BusinessModules/NonMenuController.swift; sourceTree = "<group>"; };
 		E153389C1DEC2C8500D6ECDD /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = utility/extension/UIApplication.swift; sourceTree = SOURCE_ROOT; };
 		E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +203,14 @@
 			name = nonMenuVC;
 			sourceTree = "<group>";
 		};
+		E167ABFF1DEEDD1A005F3533 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		E18FB68E1DD990A70056004F = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +234,7 @@
 		E18FB6991DD990A70056004F /* Artistico */ = {
 			isa = PBXGroup;
 			children = (
+				E167AC041DEEEA7E005F3533 /* Artistico.entitlements */,
 				E15338901DEC0FCF00D6ECDD /* businessModule */,
 				E106CFD01DE836DD00B24FCA /* Home */,
 				E1E0FF191DE4569A00CA89B5 /* Network */,
@@ -233,9 +243,9 @@
 				E10FE3101DE07B1100F55D57 /* utility */,
 				E18FB6BE1DD9919F0056004F /* login */,
 				E18FB6BD1DD991820056004F /* appBase */,
+				E167ABFF1DEEDD1A005F3533 /* Firebase */,
 				E18FB6A41DD990A70056004F /* Assets.xcassets */,
 				E18FB6A61DD990A70056004F /* LaunchScreen.storyboard */,
-				E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */,
 				E18FB6A91DD990A70056004F /* Info.plist */,
 				E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */,
 			);
@@ -352,7 +362,13 @@
 				TargetAttributes = {
 					E18FB6961DD990A70056004F = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5BG2HHAW9A;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					E18FB6AD1DD990A70056004F = {
 						CreatedOnToolsVersion = 8.1;
@@ -663,6 +679,8 @@
 			baseConfigurationReference = 16C46A9AE6231A034F7C25C5 /* Pods-Artistico.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Artistico/Artistico.entitlements;
+				DEVELOPMENT_TEAM = 5BG2HHAW9A;
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;
@@ -676,6 +694,8 @@
 			baseConfigurationReference = C9FCDD8A72BE59DEBD8A8494 /* Pods-Artistico.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Artistico/Artistico.entitlements;
+				DEVELOPMENT_TEAM = 5BG2HHAW9A;
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;

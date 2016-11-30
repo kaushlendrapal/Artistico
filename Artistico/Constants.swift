@@ -21,6 +21,15 @@ struct RestConstraint {
     
 }
 
+struct NotificationKeys {
+    static let SignedIn = "onSignInCompleted"
+}
+
+struct SegueIdentifier {
+    static let SignInToFp = "SignInToFP"
+    static let FpToSignIn = "FPToSignIn"
+}
+
 
 struct TextStyleGuide {
     

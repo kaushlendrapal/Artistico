@@ -12,4 +12,14 @@ import UIKit
 
 class AccountManager: NSObject {
     
+    static let sharedInstance = AccountManager()
+    
+    var signedIn = false
+    var displayName: String?
+    var photoURL: URL?
+    
+    override var description: String {
+        return "User { displayName : \(displayName)" +
+        "photoURL : \(photoURL)}"
+    }
 }

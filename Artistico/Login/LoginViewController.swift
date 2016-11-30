@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import Firebase
 
 struct RegisteredCellClassIdentifier {
@@ -153,7 +154,7 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             
             loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
-            loginTableViewActionCell?.submitButton.addTarget(self, action: #selector(submitButtonTapped(sender:)), for: .touchUpInside)
+            loginTableViewActionCell?.submitButton.addTarget(self, action: #selector(didTapSignIn(sender:)), for: .touchUpInside)
             loginTableViewActionCell.configureLoginTableActionCell()
             
             return loginTableViewActionCell;
@@ -243,9 +244,9 @@ extension LoginViewController {
 //MARK: Firebase login
 extension LoginViewController {
     
-    @IBAction func didTapSignIn(_ sender: AnyObject) {
+    @IBAction func didTapSignIn(sender: AnyObject) {
         // Sign In with credentials.
-        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", email: "kaushal.workboard@gmail.com", password: "Workboard1")
+        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushalyuvi@gmail.com", password: "Artistico1")
         FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -256,14 +257,16 @@ extension LoginViewController {
     }
     
     func signedIn(_ user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
         
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoURL = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
-        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
-//        performSegue(withIdentifier: Constants.Segues.SignInToFp, sender: nil)
+        AccountManager.sharedInstance.displayName = user?.displayName ?? user?.email
+        AccountManager.sharedInstance.photoURL = user?.photoURL
+        AccountManager.sharedInstance.signedIn = true
+        print(AccountManager.description())
+        
+        let notificationName = Notification.Name(rawValue:NotificationKeys.SignedIn)
+        NotificationCenter.default.post(name:notificationName, object: nil, userInfo: nil)
+        
+        createMenuView()
     }
 }
 

@@ -246,14 +246,21 @@ extension LoginViewController {
     
     @IBAction func didTapSignIn(sender: AnyObject) {
         // Sign In with credentials.
-        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushalyuvi@gmail.com", password: "Artistico1")
+        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
+        
         FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
+            print(user?.displayName ?? "no value")
+            FIRAnalytics.logEvent(withName: kFIREventLogin, parameters: ["test":user! as NSObject])
             self.signedIn(user!)
         }
+        
+        
+        
+        
     }
     
     func signedIn(_ user: FIRUser?) {

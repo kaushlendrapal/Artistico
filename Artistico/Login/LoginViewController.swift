@@ -17,6 +17,7 @@ struct RegisteredCellClassIdentifier {
     
 }
 
+//let FIREBASE_REF = Firebase(url:"https://artistico-eceec.firebaseio.com/")
 
 class LoginViewController: UIViewController {
     
@@ -38,6 +39,9 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true;
+//        if let _ = FIRAuth.auth()?.currentUser {
+//             createMenuView()
+//        }
     }
     
     
@@ -248,35 +252,18 @@ extension LoginViewController {
         // Sign In with credentials.
         let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
         
-        FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
+        AccountManager.sharedInstance.FIR_Authenticate(withEmail: user.email, password: user.password){[unowned self] (user, errorDesc) in
+            
+            guard let _:FIRUser = user else {
+                if let _ = errorDesc {
+                    // show alert for error.
+                }
                 return
             }
-            print(user?.displayName ?? "no value")
-            FIRAnalytics.logEvent(withName: kFIREventLogin, parameters: ["test":user! as NSObject])
-            self.signedIn(user!)
+            self.createMenuView()
         }
-        
-        
-        
-        
-    }
-    
-    func signedIn(_ user: FIRUser?) {
-        
-        AccountManager.sharedInstance.displayName = user?.displayName ?? user?.email
-        AccountManager.sharedInstance.photoURL = user?.photoURL
-        AccountManager.sharedInstance.signedIn = true
-        print(AccountManager.description())
-        
-        let notificationName = Notification.Name(rawValue:NotificationKeys.SignedIn)
-        NotificationCenter.default.post(name:notificationName, object: nil, userInfo: nil)
-        
-        createMenuView()
     }
 }
-
 
 
 

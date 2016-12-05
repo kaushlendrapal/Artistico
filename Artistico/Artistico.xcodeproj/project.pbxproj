@@ -27,6 +27,7 @@
 		E153389B1DEC12C700D6ECDD /* NonMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389A1DEC12C700D6ECDD /* NonMenuController.swift */; };
 		E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E153389C1DEC2C8500D6ECDD /* UIApplication.swift */; };
 		E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */; };
+		E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C621DF5778D00F927C4 /* RegisterNewUserViewController.swift */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -76,6 +77,7 @@
 		E153389A1DEC12C700D6ECDD /* NonMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonMenuController.swift; path = BusinessModules/NonMenuController.swift; sourceTree = "<group>"; };
 		E153389C1DEC2C8500D6ECDD /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = utility/extension/UIApplication.swift; sourceTree = SOURCE_ROOT; };
 		E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1584C621DF5778D00F927C4 /* RegisterNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterNewUserViewController.swift; path = Login/RegisterNewUserViewController.swift; sourceTree = SOURCE_ROOT; };
 		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		E15338961DEC111C00D6ECDD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E1584C611DF5773600F927C4 /* RegisterUser */,
 				E15338971DEC116600D6ECDD /* ProfileSettingViewController.swift */,
 			);
 			name = Profile;
@@ -201,6 +204,14 @@
 				E153389A1DEC12C700D6ECDD /* NonMenuController.swift */,
 			);
 			name = nonMenuVC;
+			sourceTree = "<group>";
+		};
+		E1584C611DF5773600F927C4 /* RegisterUser */ = {
+			isa = PBXGroup;
+			children = (
+				E1584C621DF5778D00F927C4 /* RegisterNewUserViewController.swift */,
+			);
+			name = RegisterUser;
 			sourceTree = "<group>";
 		};
 		E167ABFF1DEEDD1A005F3533 /* Firebase */ = {
@@ -518,6 +529,7 @@
 				E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */,
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */,
 				E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */,
 				E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */,
 				E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */,

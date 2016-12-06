@@ -99,3 +99,73 @@ class LoginTableViewActionCell: UITableViewCell {
     }
     
 }
+
+
+class SignInWithSocialActionCell: UITableViewCell {
+    
+    @IBOutlet var facebookSignInButton:UIButton!
+    @IBOutlet var googleSignInButton:UIButton!
+    @IBOutlet var twitterSignInButton:UIButton!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    func configureLoginTableActionCell() -> Void {
+        googleSignInButton.layer.cornerRadius = 15.0
+        twitterSignInButton.layer.cornerRadius = 16.0
+        googleSignInButton.clipsToBounds = true
+        twitterSignInButton.clipsToBounds = true
+        
+    }
+    
+    @IBAction func facebookSignInButtonTapped(sander:Any) -> Void {
+        return
+    }
+    
+    @IBAction func googleSignInButtonTapped(sander:Any) -> Void {
+        return
+    }
+    
+    @IBAction func twitterSignInButtonTapped(sander:Any) -> Void {
+        return
+    }
+}
+
+class RegisterNewActionCell: UITableViewCell {
+    
+    @IBOutlet var registerNewButton:UIButton!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    func configureLoginTableActionCell() -> Void {
+        
+    }
+    
+   
+    
+}

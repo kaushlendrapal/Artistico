@@ -10,14 +10,14 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-struct RegisteredCellClassIdentifier {
+fileprivate struct RegisteredCellClassIdentifier {
     
    static let loginTableCell:String = "LoginTableViewCell"
    static let loginTableActionCell:String = "LoginTableViewActionCell"
+   static let signInWithSocialActionCell:String = "SignInWithSocialActionCell"
+   static let registerNewActionCell:String = "RegisterNewActionCell"
     
 }
-
-//let FIREBASE_REF = Firebase(url:"https://artistico-eceec.firebaseio.com/")
 
 class LoginViewController: UIViewController {
     
@@ -112,6 +112,10 @@ class LoginViewController: UIViewController {
 //        }
         
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return true;
+    }
 
     /*
     // MARK: - Navigation
@@ -140,61 +144,88 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2;
+        return 4;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var loginTableViewCell:LoginTableViewCell!
         var loginTableViewActionCell:LoginTableViewActionCell!
+        var signInWithSocialActionCell:SignInWithSocialActionCell!
+        var registerNewActionCell:RegisterNewActionCell!
         
-        if indexPath.row == 0 {
-            
+        switch indexPath.row {
+        case 0:
             loginTableViewCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableCell, for: indexPath) as! LoginTableViewCell
             loginTableViewCell.configureLoginTableViewCell()
-            
             return loginTableViewCell
             
-        } else if indexPath.row == 1 {
-            
+         case 1:
             loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
-            loginTableViewActionCell?.submitButton.addTarget(self, action: #selector(didTapSignIn(sender:)), for: .touchUpInside)
+            loginTableViewActionCell?.submitButton.addTarget(self, action: #selector(submitButtonTapped(sender:)), for: .touchUpInside)
             loginTableViewActionCell.configureLoginTableActionCell()
+            return loginTableViewActionCell
             
-            return loginTableViewActionCell;
+        case 2:
+            signInWithSocialActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.signInWithSocialActionCell, for: indexPath) as! SignInWithSocialActionCell
+            
+            signInWithSocialActionCell.configureLoginTableActionCell()
+
+            signInWithSocialActionCell?.facebookSignInButton.addTarget(self, action: #selector(facebookSignInButtonTapped(sender:)), for: .touchUpInside)
+            
+            signInWithSocialActionCell?.googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTapped(sender:)), for: .touchUpInside)
+            
+            signInWithSocialActionCell?.twitterSignInButton.addTarget(self, action: #selector(twitterSignInButtonTapped(sender:)), for: .touchUpInside)
+            return signInWithSocialActionCell
+            
+        case 3:
+            registerNewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.registerNewActionCell, for: indexPath) as! RegisterNewActionCell
+            registerNewActionCell?.registerNewButton.addTarget(self, action: #selector(registerNewUserButtonTapped(sender:)), for: .touchUpInside)
+            registerNewActionCell.configureLoginTableActionCell()
+            return registerNewActionCell
+            
+        default:
+            return UITableViewCell.init()
         }
-        
-        return UITableViewCell.init()
     }
     
-    @IBAction func submitButtonTapped(sender :Any) {
+    @IBAction func submitButtonTapped(sender :Any) -> () {
+        // Sign In with credentials.
+        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
         
-        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", email: "kaushal.workboard@gmail.com", password: "Workboard1")
-        HTTPRestClient.DefaultRestClient.loginUser(withUser: user, completionHandler: {
-             result in
+        AccountManager.sharedInstance.FIR_Authenticate(withEmail: user.email, password: user.password){[unowned self] (user, errorDesc) in
             
-            switch result {
-            case .success:
-                if let loginUser = result.value as? UserLogin  {
-                    print("JSON: \(loginUser)")
-                    DispatchQueue.main.async(execute: {
-                        self.showMainViewController()
-                    })
+            guard let _:FIRUser = user else {
+                if let _ = errorDesc {
+                    // show alert for error.
                 }
-            case .failure(let error):
-                print(error)
+                return
             }
-        })
-        
+            self.createMenuView()
+        }
     }
     
-    func showMainViewController() -> Void {
+    @IBAction func registerNewUserButtonTapped(sender:Any) -> () {
+        return
+    }
+    
+    @IBAction func facebookSignInButtonTapped(sender:Any) -> () {
+        return
+    }
+    
+    @IBAction func googleSignInButtonTapped(sender:Any) -> () {
+        return
+    }
+    
+    @IBAction func twitterSignInButtonTapped(sender:Any) -> () {
+        return
+    }
+    
+   fileprivate func showMainViewController() -> Void {
         
         if let mainVC = rootViewController {
             show(mainVC, sender: nil)
         } else {
-//            let storyboard : UIStoryboard = UIStoryboard.init(name:"Main", bundle: nil)
-//            self.rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as? RootViewController
             createMenuView()
             
         }
@@ -245,23 +276,29 @@ extension LoginViewController {
     }
 }
 
-//MARK: Firebase login
+
 extension LoginViewController {
     
     @IBAction func didTapSignIn(sender: AnyObject) {
-        // Sign In with credentials.
-        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
         
-        AccountManager.sharedInstance.FIR_Authenticate(withEmail: user.email, password: user.password){[unowned self] (user, errorDesc) in
+        //MARK: Amalofire request demo.
+        let user:UserLogin = UserLogin.init(name: "kaushal.workboard@gmail.com", email: "kaushal.workboard@gmail.com", password: "Workboard1")
+        HTTPRestClient.DefaultRestClient.loginUser(withUser: user, completionHandler: {
+            result in
             
-            guard let _:FIRUser = user else {
-                if let _ = errorDesc {
-                    // show alert for error.
+            switch result {
+            case .success:
+                if let loginUser = result.value as? UserLogin  {
+                    print("JSON: \(loginUser)")
+                    DispatchQueue.main.async(execute: {
+                        self.showMainViewController()
+                    })
                 }
-                return
+            case .failure(let error):
+                print(error)
             }
-            self.createMenuView()
-        }
+        })
+        
     }
 }
 

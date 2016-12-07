@@ -43,7 +43,7 @@ class RegisterNewUserViewController: UIViewController {
     func setUpView() -> Void {
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.estimatedRowHeight = 70.0
+        tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
@@ -117,33 +117,48 @@ extension RegisterNewUserViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return 2;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var tableViewTextFieldCell:TableViewTextFieldCell!
-        var loginTableViewActionCell:LoginTableViewActionCell!
         
         switch indexPath.row {
         case 0:
             tableViewTextFieldCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewTextFieldCell, for: indexPath) as! TableViewTextFieldCell
-            
+            tableViewTextFieldCell.label.text = "User Name"
             tableViewTextFieldCell.configureTextFieldCell()
             return tableViewTextFieldCell
             
         case 1:
-            loginTableViewActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.loginTableActionCell, for: indexPath) as! LoginTableViewActionCell
-            
-            return loginTableViewActionCell
+            tableViewTextFieldCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewTextFieldCell, for: indexPath) as! TableViewTextFieldCell
+            tableViewTextFieldCell.label.text = "email"
+            tableViewTextFieldCell.configureTextFieldCell()
+            return tableViewTextFieldCell
             
         case 2:
-            break;
+            tableViewTextFieldCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewTextFieldCell, for: indexPath) as! TableViewTextFieldCell
+            tableViewTextFieldCell.label.text = "Password"
+            tableViewTextFieldCell.configureTextFieldCell()
+            return tableViewTextFieldCell
+        
             
         default:
             return UITableViewCell.init()
         }
-        return UITableViewCell.init()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.row {
+        case 0:
+            return 65.0
+        case 1:
+            return 65.0
+        default:
+            return 44.0
+        }
     }
 }
 

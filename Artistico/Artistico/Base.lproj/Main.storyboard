@@ -451,7 +451,10 @@
                                                 <constraint firstAttribute="width" constant="46" id="kwp-UE-AZ9"/>
                                                 <constraint firstAttribute="height" constant="30" id="u7j-Ul-PXO"/>
                                             </constraints>
-                                            <state key="normal" title="Close"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <state key="normal" title="Close">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artistico" translatesAutoresizingMaskIntoConstraints="NO" id="afM-ed-DVI">
                                             <rect key="frame" x="167" y="18" width="80" height="60"/>
@@ -665,6 +668,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="unt-7Q-8pm" id="Gkg-LO-aEz"/>
+                        <outlet property="profileImage" destination="afM-ed-DVI" id="9ro-5V-xaN"/>
                         <outlet property="tableView" destination="9ON-0M-igP" id="njS-ig-VKI"/>
                     </connections>
                 </viewController>

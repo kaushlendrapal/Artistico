@@ -11,7 +11,8 @@ import UIKit
 fileprivate struct RegisteredCellClassIdentifier {
     
     static let tableViewTextFieldCell:String = "TableViewTextFieldCell"
-    static let loginTableActionCell:String = "LoginTableViewActionCell"
+    static let tableViewButtonActionCell:String = "TableViewButtonActionCell"
+    static let tableViewConfirmTextFieldCell:String = "TableViewConfirmTextFieldCell"
     
 }
 
@@ -19,6 +20,7 @@ class RegisterNewUserViewController: UIViewController {
     
      @IBOutlet var tableView:UITableView!
      @IBOutlet var closeButton:UIButton!
+     @IBOutlet var profileImage:UIImageView!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -51,6 +53,8 @@ class RegisterNewUserViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(TableViewTextFieldCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewTextFieldCell)
+        tableView.register(TableViewConfirmTextFieldCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewConfirmTextFieldCell)
+        tableView.register(TableViewButtonActionCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewButtonActionCell)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -117,12 +121,14 @@ extension RegisterNewUserViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return 4;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var tableViewTextFieldCell:TableViewTextFieldCell!
+        var tableViewButtonActionCell:TableViewButtonActionCell
+        var tableViewConfirmTextFieldCell:TableViewConfirmTextFieldCell
         
         switch indexPath.row {
         case 0:
@@ -136,13 +142,19 @@ extension RegisterNewUserViewController : UITableViewDelegate, UITableViewDataSo
             tableViewTextFieldCell.label.text = "email"
             tableViewTextFieldCell.configureTextFieldCell()
             return tableViewTextFieldCell
-            
         case 2:
-            tableViewTextFieldCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewTextFieldCell, for: indexPath) as! TableViewTextFieldCell
-            tableViewTextFieldCell.label.text = "Password"
-            tableViewTextFieldCell.configureTextFieldCell()
-            return tableViewTextFieldCell
-        
+            tableViewConfirmTextFieldCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewConfirmTextFieldCell, for: indexPath) as! TableViewConfirmTextFieldCell
+            tableViewConfirmTextFieldCell.label.text = "Password"
+            tableViewConfirmTextFieldCell.retypeLabel.text = "Retype Password"
+            tableViewConfirmTextFieldCell.configureTextFieldCell()
+            return tableViewConfirmTextFieldCell
+            
+        case 3:
+            tableViewButtonActionCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewButtonActionCell, for: indexPath) as! TableViewButtonActionCell
+            tableViewButtonActionCell.actionTitle = "Register Me"
+            tableViewButtonActionCell.actionButton.addTarget(self, action: #selector(registerNewUserButtonTapped(sender:)), for: .touchUpInside)
+            tableViewButtonActionCell.configureButtonActionCell()
+            return tableViewButtonActionCell
             
         default:
             return UITableViewCell.init()
@@ -156,10 +168,19 @@ extension RegisterNewUserViewController : UITableViewDelegate, UITableViewDataSo
             return 65.0
         case 1:
             return 65.0
+        case 2:
+            return 130.0
+        case 3:
+            return 70.0
         default:
             return 44.0
         }
     }
+    
+    @IBAction func registerNewUserButtonTapped(sender:Any) -> () {
+        return
+    }
+    
 }
 
 

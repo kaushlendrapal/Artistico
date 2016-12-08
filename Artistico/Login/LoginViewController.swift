@@ -191,7 +191,7 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func submitButtonTapped(sender :Any) -> () {
         // Sign In with credentials.
-        let user:UserLogin = UserLogin.init(name: "kaushalyuvi@gmail.com", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
+        let user:UserLogin = UserLogin.init(name: "kaushal", email: "kaushal.workboard+10000@gmail.com", password: "Workboard1")
         
         AccountManager.sharedInstance.FIR_Authenticate(withEmail: user.email, password: user.password){[unowned self] (user, errorDesc) in
             

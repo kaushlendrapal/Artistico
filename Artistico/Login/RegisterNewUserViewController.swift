@@ -99,6 +99,7 @@ class RegisterNewUserViewController: UIViewController {
     
     @IBAction func closeButtonTapped(sender:Any) -> () {
       let _ =  navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     /*

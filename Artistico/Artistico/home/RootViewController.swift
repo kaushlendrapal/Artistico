@@ -23,10 +23,6 @@ class RootViewController: UIViewController {
         self.clientTable.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
         configureDatabase()
         configureStorage()
-//        for char in "ABCDEFIJKLMNOPQRSTUVWXYZ".characters {
-//            let imageName = "Letters_" + String(char)
-//            print(imageName)
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

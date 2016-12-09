@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import GoogleSignIn
 
 fileprivate struct RegisteredCellClassIdentifier {
     
@@ -31,9 +32,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
-        
         // Do any additional setup after loading the view.
+        setUpView()
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -214,6 +216,9 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func googleSignInButtonTapped(sender:Any) -> () {
+        
+         GIDSignIn.sharedInstance().signIn()
+        
         return
     }
     
@@ -247,6 +252,56 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.delegate = self.rootViewController
        show(slideMenuController, sender: nil)
+    }
+    
+}
+
+//MARK: GIDSignInDelegate
+extension LoginViewController: GIDSignInDelegate, GIDSignInUIDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+                                                          accessToken: (authentication?.accessToken)!)
+        print(credential)
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            
+            guard let _:FIRUser = user else {
+                if let _ = error {
+                    // show error
+                }
+                return
+            }
+            print(user?.email ?? "test@email")
+            self.createMenuView()
+        }
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+    
+    //GIDSignInUIDelegate
+    
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        
+    }
+    
+     func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        
+         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -31,6 +31,10 @@
 		E1584C651DF6A6B300F927C4 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C641DF6A6B300F927C4 /* ReusableTableViewCell.swift */; };
 		E1584C691DF981A700F927C4 /* googleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = E1584C681DF981A700F927C4 /* googleApp.png */; };
 		E1584C6B1DFA8AE300F927C4 /* SignInAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C6A1DFA8AE300F927C4 /* SignInAuthService.swift */; };
+		E1584C781DFABB9C00F927C4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C741DFABB9C00F927C4 /* Bolts.framework */; };
+		E1584C791DFABB9C00F927C4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */; };
+		E1584C7A1DFABB9C00F927C4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */; };
+		E1584C7B1DFABB9C00F927C4 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -84,6 +88,10 @@
 		E1584C641DF6A6B300F927C4 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableTableViewCell.swift; path = Login/ReusableTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E1584C681DF981A700F927C4 /* googleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleApp.png; sourceTree = "<group>"; };
 		E1584C6A1DFA8AE300F927C4 /* SignInAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInAuthService.swift; path = Login/SignInAuthService.swift; sourceTree = SOURCE_ROOT; };
+		E1584C741DFABB9C00F927C4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = frameworks/Bolts.framework; sourceTree = "<group>"; };
+		E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBF86A762E532BD44317943A /* Pods_Artistico.framework in Frameworks */,
+				E1584C791DFABB9C00F927C4 /* FBSDKCoreKit.framework in Frameworks */,
+				E1584C7B1DFABB9C00F927C4 /* FBSDKShareKit.framework in Frameworks */,
+				E1584C7A1DFABB9C00F927C4 /* FBSDKLoginKit.framework in Frameworks */,
+				E1584C781DFABB9C00F927C4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +149,10 @@
 		90AC9442261A51AB2CE9117A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1584C741DFABB9C00F927C4 /* Bolts.framework */,
+				E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */,
+				E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */,
+				E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */,
 				87E179A4D7A77E01D51E32ED /* Pods_Artistico.framework */,
 				112D64C08A97D87A5D5F0813 /* Pods_ArtisticoTests.framework */,
 			);
@@ -705,6 +721,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Artistico/Artistico.entitlements;
 				DEVELOPMENT_TEAM = 5BG2HHAW9A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;
@@ -720,6 +740,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Artistico/Artistico.entitlements;
 				DEVELOPMENT_TEAM = 5BG2HHAW9A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = Artistico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HM.Artistico;

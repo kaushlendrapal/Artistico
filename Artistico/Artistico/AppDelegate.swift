@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -53,10 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
-            return GIDSignIn.sharedInstance().handle(url,
+            var handler:Bool
+            if false {
+            handler = GIDSignIn.sharedInstance().handle(url,
                                                         sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                         annotation: [:])
+            } else {
+              handler = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
+            }
+            
+            return handler
     }
+    
     
     // MARK: - Core Data stack
 

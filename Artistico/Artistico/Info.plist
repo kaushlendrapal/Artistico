@@ -30,6 +30,12 @@
 				<string>com.googleusercontent.apps.724162736338-24jgh6mlbckck4hdue8n998lceatn871</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1689578848018779</string>
+            </array>
+        </dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -56,5 +62,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>FacebookAppID</key>
+    <string>1689578848018779</string>
+    <key>FacebookDisplayName</key>
+    <string>Artistico</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginTableViewCell: UITableViewCell {
     
@@ -103,7 +104,7 @@ class LoginTableViewActionCell: UITableViewCell {
 
 class SignInWithSocialActionCell: UITableViewCell {
     
-    @IBOutlet var facebookSignInButton:UIButton!
+    @IBOutlet var facebookSignInButton:FBSDKLoginButton!
     @IBOutlet var googleSignInButton:UIButton!
     @IBOutlet var twitterSignInButton:UIButton!
     

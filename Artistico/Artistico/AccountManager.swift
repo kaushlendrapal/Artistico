@@ -12,6 +12,8 @@ import UIKit
 import Firebase
 
 typealias FIRAuthUserCallback = (FIRUser?, String?) -> ()
+typealias FIRSignOutCallback = (String?) -> ()
+
 
 class AccountManager: NSObject {
     

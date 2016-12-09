@@ -23,6 +23,7 @@ class SignInAuthService: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
     unowned var delegatedViewController:UIViewController
     var signInType:SignInOAuthType = .google
     var signInCallback:FIRAuthUserCallback?=nil
+    var signOutCallback:FIRSignOutCallback?=nil
     
     required init(delegated:UIViewController, signInType:SignInOAuthType) {
         self.delegatedViewController = delegated
@@ -53,6 +54,16 @@ class SignInAuthService: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
+    func signOut(_ completion:FIRSignOutCallback?=nil) -> () {
+        signOutCallback = completion
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            self.signOutCallback!(signOutError.localizedDescription)
+        }
+        self.signOutCallback!(nil)
+    }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if let error = error {

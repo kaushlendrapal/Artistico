@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 fileprivate struct RegisteredCellClassIdentifier {
     
@@ -180,7 +182,9 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
             
             signInWithSocialActionCell.configureLoginTableActionCell()
 
-            signInWithSocialActionCell?.facebookSignInButton.addTarget(self, action: #selector(facebookSignInButtonTapped(sender:)), for: .touchUpInside)
+//            signInWithSocialActionCell?.facebookSignInButton.addTarget(self, action: #selector(facebookSignInButtonTapped(sender:)), for: .touchUpInside)
+            signInWithSocialActionCell?.facebookSignInButton.readPermissions = ["public_profile", "email"]
+            signInWithSocialActionCell?.facebookSignInButton.delegate = self
             
             signInWithSocialActionCell?.googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTapped(sender:)), for: .touchUpInside)
             
@@ -219,6 +223,10 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func facebookSignInButtonTapped(sender:Any) -> () {
+        
+        let fbLoginButton:FBSDKLoginButton = FBSDKLoginButton()
+        fbLoginButton.readPermissions = ["public_profile", "email"]
+        fbLoginButton.delegate = self
         return
     }
     
@@ -272,6 +280,18 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.delegate = self.rootViewController
        show(slideMenuController, sender: nil)
+    }
+    
+}
+
+extension LoginViewController : FBSDKLoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
     }
     
 }

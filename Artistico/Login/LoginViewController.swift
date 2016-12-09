@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
     
     var rootViewController : RootViewController?
     @IBOutlet var tableView:UITableView!
+    var signInAuthService:SignInAuthService?
+    
     
     
     required init(coder aDecoder: NSCoder) {
@@ -34,8 +36,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpView()
+        #if false
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
+        #else
+        signInAuthService = SignInAuthService.init(delegated: self, signInType: .google)
+        #endif
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -217,7 +224,20 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func googleSignInButtonTapped(sender:Any) -> () {
         
+        #if false
          GIDSignIn.sharedInstance().signIn()
+        #else
+            signInAuthService?.signIn(){ user, errorDesc in
+                guard let _:FIRUser = user else {
+                    if let _ = errorDesc {
+                        // show alert for error.
+                        print("dead lock")
+                    }
+                    return
+                }
+                print("sucess call back sign in")
+            }
+        #endif
         
         return
     }

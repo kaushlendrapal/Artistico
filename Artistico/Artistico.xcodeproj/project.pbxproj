@@ -30,6 +30,7 @@
 		E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C621DF5778D00F927C4 /* RegisterNewUserViewController.swift */; };
 		E1584C651DF6A6B300F927C4 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C641DF6A6B300F927C4 /* ReusableTableViewCell.swift */; };
 		E1584C691DF981A700F927C4 /* googleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = E1584C681DF981A700F927C4 /* googleApp.png */; };
+		E1584C6B1DFA8AE300F927C4 /* SignInAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1584C6A1DFA8AE300F927C4 /* SignInAuthService.swift */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		E1584C621DF5778D00F927C4 /* RegisterNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterNewUserViewController.swift; path = Login/RegisterNewUserViewController.swift; sourceTree = SOURCE_ROOT; };
 		E1584C641DF6A6B300F927C4 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableTableViewCell.swift; path = Login/ReusableTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E1584C681DF981A700F927C4 /* googleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleApp.png; sourceTree = "<group>"; };
+		E1584C6A1DFA8AE300F927C4 /* SignInAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInAuthService.swift; path = Login/SignInAuthService.swift; sourceTree = SOURCE_ROOT; };
 		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E0FF141DE4552500CA89B5 /* AccountManager.swift */,
+				E1584C6A1DFA8AE300F927C4 /* SignInAuthService.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
 				E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */,
 				E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */,
+				E1584C6B1DFA8AE300F927C4 /* SignInAuthService.swift in Sources */,
 				E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */,
 				E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */,
 				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,

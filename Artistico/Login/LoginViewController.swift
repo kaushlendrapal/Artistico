@@ -12,6 +12,7 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import TwitterKit
 
 fileprivate struct RegisteredCellClassIdentifier {
     
@@ -251,6 +252,24 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func twitterSignInButtonTapped(sender:Any) -> () {
+        
+        let logInButton = TWTRLogInButton { (session, error) in
+            if let unwrappedSession = session {
+                let alert = UIAlertController(title: "Logged In",
+                                              message: "User \(unwrappedSession.userName) has logged in",
+                    preferredStyle: UIAlertControllerStyle.alert
+                )
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+                
+                
+                
+            } else {
+                NSLog("Login error: %@", error!.localizedDescription);
+            }
+        }
+        logInButton.sendActions(for: .touchUpInside)
+        
         return
     }
     

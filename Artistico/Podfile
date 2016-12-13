@@ -12,6 +12,9 @@ target 'Artistico' do
   pod 'Firebase/AppIndexing'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Fabric'
+  pod 'TwitterKit'
+  pod 'TwitterCore'
 
   # Pods for Artistico
 

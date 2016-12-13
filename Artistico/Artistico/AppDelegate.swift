@@ -11,6 +11,8 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import Fabric
+import TwitterKit
 
 
 @UIApplicationMain
@@ -24,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         //goole sign in
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-                
+        Fabric.with([Twitter.self])
+        
         return true
     }
 
@@ -56,12 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
             var handler:Bool
-            if false {
+            
+            
+            if url.absoluteString.hasPrefix("com.googleusercontent.apps.724162736338-24jgh6mlbckck4hdue8n998lceatn871:"){
+                
             handler = GIDSignIn.sharedInstance().handle(url,
                                                         sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                         annotation: [:])
-            } else {
+            } else if url.absoluteString.hasPrefix("fb1689578848018779") {
+                
               handler = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
+                
+            }else if url.absoluteString.hasPrefix("") {
+                handler = true
+            } else {
+                handler = false
             }
             
             return handler

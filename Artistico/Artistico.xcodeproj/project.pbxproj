@@ -43,6 +43,7 @@
 		E18FB6B31DD990A70056004F /* ArtisticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6B21DD990A70056004F /* ArtisticoTests.swift */; };
 		E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C11DD9954A0056004F /* LoginViewController.swift */; };
 		E18FB6C41DD995740056004F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6C31DD995740056004F /* LoginView.swift */; };
+		E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D0C9581DFE904C003D98A5 /* facebookApp.png */; };
 		E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF141DE4552500CA89B5 /* AccountManager.swift */; };
 		E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF171DE455BB00CA89B5 /* User.swift */; };
 		E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF1A1DE456BA00CA89B5 /* HTTPRestClient.swift */; };
@@ -105,6 +106,7 @@
 		E18FB6B41DD990A70056004F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18FB6C11DD9954A0056004F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		E18FB6C31DD995740056004F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = Login/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		E1D0C9581DFE904C003D98A5 /* facebookApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookApp.png; sourceTree = "<group>"; };
 		E1E0FF141DE4552500CA89B5 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		E1E0FF171DE455BB00CA89B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1E0FF1A1DE456BA00CA89B5 /* HTTPRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestClient.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		E167ABFF1DEEDD1A005F3533 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				E1D0C9581DFE904C003D98A5 /* facebookApp.png */,
 				E1584C681DF981A700F927C4 /* googleApp.png */,
 				E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */,
 			);
@@ -355,6 +358,7 @@
 				E18FB6951DD990A70056004F /* Resources */,
 				9CFF11F0C390879E2904588B /* [CP] Embed Pods Frameworks */,
 				10DF43DBCC7E7B7838ABDED6 /* [CP] Copy Pods Resources */,
+				E107DA891E00134F0079E6D5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -438,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18FB6A81DD990A70056004F /* LaunchScreen.storyboard in Resources */,
+				E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */,
 				E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */,
 				E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */,
 				E18FB6A01DD990A70056004F /* Main.storyboard in Resources */,
@@ -544,6 +549,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		E107DA891E00134F0079E6D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d21be528b39a0f4460af9e1a69955d3699e9b1e1 1de85a2643d9f7ed9c45e747693bcc00dd2046931318d0e948a876a188a1772e ";
 		};
 /* End PBXShellScriptBuildPhase section */
 

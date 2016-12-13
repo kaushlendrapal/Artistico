@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - Fabric (1.6.11)
   - Firebase/AppIndexing (3.10.0):
     - Firebase/Core
     - FirebaseAppIndexing (= 1.2.0)
@@ -62,18 +63,26 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
+  - TwitterCore (2.6.1):
+    - Fabric
+  - TwitterKit (2.6.1):
+    - TwitterCore (= 2.6.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.1)
+  - Fabric
   - Firebase/AppIndexing
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
+  - TwitterCore
+  - TwitterKit
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAppIndexing: d0fa52ce0ad13f4b5b2f09e4b47fb0dc2213f4e9
@@ -89,7 +98,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  TwitterCore: a8aea8bdaf2abd6572c8f264707a4ea4dc2d0eab
+  TwitterKit: d38c08d31dfd4ba604f95deca6cf8e174b5cbd96
 
-PODFILE CHECKSUM: c4944d2e219d09d382ac99968fa1e993115dcc0b
+PODFILE CHECKSUM: bbc0a8b18f97ed0a333fbda4b5a0b050cf903780
 
 COCOAPODS: 1.1.1

@@ -10,7 +10,9 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import GoogleSignIn
-
+import FBSDKCoreKit
+import FBSDKLoginKit
+import TwitterKit
 
 enum SignInOAuthType {
     case facebook
@@ -24,6 +26,9 @@ class SignInAuthService: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
     var signInType:SignInOAuthType = .google
     var signInCallback:FIRAuthUserCallback?=nil
     var signOutCallback:FIRSignOutCallback?=nil
+    let fbLoginButton:FBSDKLoginButton = FBSDKLoginButton()
+    var logInButton :TWTRLogInButton?
+    
     
     required init(delegated:UIViewController, signInType:SignInOAuthType) {
         self.delegatedViewController = delegated
@@ -37,21 +42,61 @@ class SignInAuthService: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
         
         switch signInType {
         case .facebook:
+            fbLoginButton.readPermissions = ["public_profile", "email"]
+            fbLoginButton.delegate = self
             return true
         case .google:
             GIDSignIn.sharedInstance().delegate = self
             GIDSignIn.sharedInstance().uiDelegate = self
             return true
         case .twitter :
+            logInButton = TWTRLogInButton { (session, error) in
+                if let unwrappedSession = session {
+                    
+                    let credential = FIRTwitterAuthProvider.credential(withToken: unwrappedSession.authToken, secret: unwrappedSession.authTokenSecret)
+                    
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                        
+                        guard let _:FIRUser = user else {
+                            var errorDescription:String? = "user and error are nil"
+                            if let error = error {
+                                if let errCode = FIRAuthErrorCode(rawValue: error._code) {
+                                    switch errCode {
+                                    case .errorCodeUserNotFound:
+                                        errorDescription = "User account not found. Try registering"
+                                    case .errorCodeWrongPassword:
+                                        errorDescription = "Incorrect username/password combination"
+                                    default:
+                                        errorDescription = "Error:" + error.localizedDescription
+                                    }
+                                }
+                            }
+                            self.signInCallback!(nil,errorDescription)
+                            return
+                        }
+                        self.signInCallback!(user,Global.kEmptyString)
+                    }
+                    
+                } else {
+                    NSLog("Login error: %@", error!.localizedDescription);
+                }
+            }
             return true
-
         }
         
     }
     
     func signIn(_ completion:FIRAuthUserCallback?=nil) -> () {
         signInCallback = completion
-        GIDSignIn.sharedInstance().signIn()
+        
+        switch signInType {
+        case .facebook:
+            fbLoginButton.sendActions(for: .touchUpInside)
+        case .google:
+            GIDSignIn.sharedInstance().signIn()
+        case .twitter :
+            logInButton?.sendActions(for: .touchUpInside)
+        }
     }
     
     func signOut(_ completion:FIRSignOutCallback?=nil) -> () {
@@ -117,4 +162,44 @@ class SignInAuthService: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
         delegatedViewController.dismiss(animated: true, completion: nil)
         // add callback to handle loginSuccess
     }
+}
+
+extension SignInAuthService : FBSDKLoginButtonDelegate  {
+    
+        func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+            
+            if let error = error {
+                self.signInCallback!(nil,error.localizedDescription)
+            }
+            
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                
+                guard let _:FIRUser = user else {
+                    var errorDescription:String? = "user and error are nil"
+                    if let error = error {
+                        if let errCode = FIRAuthErrorCode(rawValue: error._code) {
+                            switch errCode {
+                            case .errorCodeUserNotFound:
+                                errorDescription = "User account not found. Try registering"
+                            case .errorCodeWrongPassword:
+                                errorDescription = "Incorrect username/password combination"
+                            default:
+                                errorDescription = "Error:" + error.localizedDescription
+                            }
+                        }
+                    }
+                    self.signInCallback!(nil,errorDescription)
+                    return
+                }
+                self.signInCallback!(user,Global.kEmptyString)
+            }
+            
+        }
+    
+        func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+            
+        }
+    
 }

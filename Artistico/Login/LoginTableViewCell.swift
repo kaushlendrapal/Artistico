@@ -104,7 +104,7 @@ class LoginTableViewActionCell: UITableViewCell {
 
 class SignInWithSocialActionCell: UITableViewCell {
     
-    @IBOutlet var facebookSignInButton:FBSDKLoginButton!
+    @IBOutlet var facebookSignInButton:UIButton!
     @IBOutlet var googleSignInButton:UIButton!
     @IBOutlet var twitterSignInButton:UIButton!
     

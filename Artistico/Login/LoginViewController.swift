@@ -105,10 +105,6 @@ class LoginViewController: UIViewController {
     
     func keyboardWillHide(notification:NSNotification?) -> Void {
         
-//        if let noti = notification {
-        
-//            _ = noti.userInfo
-//            let keyboardSize: CGSize? = (infoDictionary![UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size
             if let tableBottomConstraint =
                 view.constraints.filter({ (testConstraint:NSLayoutConstraint) -> Bool in
                     return testConstraint.identifier == "tableViewBottomIdentifier"
@@ -121,7 +117,6 @@ class LoginViewController: UIViewController {
                 self.tableView.setNeedsUpdateConstraints()
                 self.tableView.setContentOffset(CGPoint.zero, animated: false)
             }
-//        }
         
     }
     
@@ -183,9 +178,7 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
             
             signInWithSocialActionCell.configureLoginTableActionCell()
 
-//            signInWithSocialActionCell?.facebookSignInButton.addTarget(self, action: #selector(facebookSignInButtonTapped(sender:)), for: .touchUpInside)
-            signInWithSocialActionCell?.facebookSignInButton.readPermissions = ["public_profile", "email"]
-            signInWithSocialActionCell?.facebookSignInButton.delegate = self
+            signInWithSocialActionCell?.facebookSignInButton.addTarget(self, action: #selector(facebookSignInButtonTapped(sender:)), for: .touchUpInside)
             
             signInWithSocialActionCell?.googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTapped(sender:)), for: .touchUpInside)
             
@@ -225,9 +218,19 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func facebookSignInButtonTapped(sender:Any) -> () {
         
-        let fbLoginButton:FBSDKLoginButton = FBSDKLoginButton()
-        fbLoginButton.readPermissions = ["public_profile", "email"]
-        fbLoginButton.delegate = self
+        signInAuthService?.signInType = .facebook
+        signInAuthService?.validateAuthPreCondition(signInType: .facebook)
+        signInAuthService?.signIn(){ user, errorDesc in
+            guard let _:FIRUser = user else {
+                if let _ = errorDesc {
+                    // show alert for error.
+                    print("dead lock")
+                }
+                return
+            }
+            print("sucess facebook sign in call back ")
+            self.createMenuView()
+        }
         return
     }
     
@@ -244,7 +247,8 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
                     }
                     return
                 }
-                print("sucess call back sign in")
+                print("sucess google sign in call back")
+                self.createMenuView()
             }
         #endif
         
@@ -253,22 +257,18 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func twitterSignInButtonTapped(sender:Any) -> () {
         
-        let logInButton = TWTRLogInButton { (session, error) in
-            if let unwrappedSession = session {
-                let alert = UIAlertController(title: "Logged In",
-                                              message: "User \(unwrappedSession.userName) has logged in",
-                    preferredStyle: UIAlertControllerStyle.alert
-                )
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-                
-                
-                
-            } else {
-                NSLog("Login error: %@", error!.localizedDescription);
+        signInAuthService?.signInType = .twitter
+        signInAuthService?.validateAuthPreCondition(signInType: .twitter)
+        signInAuthService?.signIn(){ user, errorDesc in
+            guard let _:FIRUser = user else {
+                if let _ = errorDesc {
+                    // show alert for error.
+                }
+                return
             }
+            print("sucess twitter sign in call back")
+            self.createMenuView()
         }
-        logInButton.sendActions(for: .touchUpInside)
         
         return
     }
@@ -303,17 +303,6 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension LoginViewController : FBSDKLoginButtonDelegate {
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
-    }
-    
-}
 
 //MARK: GIDSignInDelegate
 extension LoginViewController: GIDSignInDelegate, GIDSignInUIDelegate {
@@ -363,31 +352,6 @@ extension LoginViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-}
-
-extension LoginViewController {
-    
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.verticalSizeClass != previousTraitCollection?.verticalSizeClass {
-            
-            switch traitCollection.verticalSizeClass {
-                
-            case UIUserInterfaceSizeClass.compact:
-                
-                break
-            case UIUserInterfaceSizeClass.unspecified:
-                fallthrough
-                
-            case UIUserInterfaceSizeClass.regular:
-                
-                break
-            }
-        }
-    }
 }
 
 

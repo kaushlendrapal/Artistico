@@ -26,6 +26,7 @@ fileprivate struct RegisteredCellClassIdentifier {
 class LoginViewController: UIViewController {
     
     var rootViewController : RootViewController?
+    var menuController:SlideMenuController?
     @IBOutlet var tableView:UITableView!
     var signInAuthService:SignInAuthService?
     
@@ -295,12 +296,11 @@ extension LoginViewController : UITableViewDelegate, UITableViewDataSource {
         
         leftViewController.mainViewController = nvc
         
-        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: UIViewController.init())
-        slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        slideMenuController.delegate = self.rootViewController
-       show(slideMenuController, sender: nil)
+        self.menuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: UIViewController.init())
+        self.menuController?.automaticallyAdjustsScrollViewInsets = true
+        self.menuController?.delegate = self.rootViewController
+       show(self.menuController!, sender: nil)
     }
-    
 }
 
 

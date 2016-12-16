@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 struct Global {
     
     static let kEmptyString = ""

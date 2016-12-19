@@ -17,5 +17,9 @@ class ReusableTableViewHeader: UIView {
         // Drawing code
     }
     */
+    
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
 
 }

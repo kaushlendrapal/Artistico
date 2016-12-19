@@ -29,10 +29,9 @@ class TableViewTextFieldCell: UITableViewCell {
         super.init(coder: aDecoder)!
     }
     
-//    @nonobjc
-//    class func requiresConstraintBasedLayout() -> Bool {
-//        return true
-//    }
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -139,6 +138,10 @@ class TableViewButtonActionCell: UITableViewCell {
         super.init(coder: aDecoder)!
     }
     
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.autoresizingMask = [.flexibleLeftMargin, .flexibleLeftMargin,.flexibleBottomMargin,.flexibleRightMargin,  .flexibleHeight, .flexibleWidth]
@@ -221,10 +224,9 @@ class TableViewConfirmTextFieldCell: UITableViewCell {
         super.init(coder: aDecoder)!
     }
     
-    //    @nonobjc
-    //    class func requiresConstraintBasedLayout() -> Bool {
-    //        return true
-    //    }
+    override class var requiresConstraintBasedLayout: Bool {
+      return true
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

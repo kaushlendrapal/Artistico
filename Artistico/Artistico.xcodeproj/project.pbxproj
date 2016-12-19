@@ -48,6 +48,8 @@
 		E1CB1CCE1E07BDB800A64108 /* ReusableTableViewSectionFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CCD1E07BDB800A64108 /* ReusableTableViewSectionFooterCell.swift */; };
 		E1CB1CD01E07BEA700A64108 /* ReusableTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CCF1E07BEA700A64108 /* ReusableTableViewHeader.swift */; };
 		E1CB1CD21E07BECD00A64108 /* ReusableTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD11E07BECD00A64108 /* ReusableTableViewFooter.swift */; };
+		E1CB1CD41E07C47D00A64108 /* TableViewCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */; };
+		E1CB1CD61E07DD3800A64108 /* CollectionViewProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */; };
 		E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D0C9581DFE904C003D98A5 /* facebookApp.png */; };
 		E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF141DE4552500CA89B5 /* AccountManager.swift */; };
 		E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF171DE455BB00CA89B5 /* User.swift */; };
@@ -116,6 +118,8 @@
 		E1CB1CCD1E07BDB800A64108 /* ReusableTableViewSectionFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewSectionFooterCell.swift; sourceTree = "<group>"; };
 		E1CB1CCF1E07BEA700A64108 /* ReusableTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewHeader.swift; sourceTree = "<group>"; };
 		E1CB1CD11E07BECD00A64108 /* ReusableTableViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewFooter.swift; sourceTree = "<group>"; };
+		E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCategoryCell.swift; sourceTree = "<group>"; };
+		E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewProductCell.swift; sourceTree = "<group>"; };
 		E1D0C9581DFE904C003D98A5 /* facebookApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookApp.png; sourceTree = "<group>"; };
 		E1E0FF141DE4552500CA89B5 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		E1E0FF171DE455BB00CA89B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				E1CB1CC71E07B0E200A64108 /* CategoryTableViewController.swift */,
+				E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */,
+				E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */,
 				E15338991DEC12A300D6ECDD /* nonMenuVC */,
 				E15338961DEC111C00D6ECDD /* Profile */,
 				E15338951DEC110B00D6ECDD /* Help */,
@@ -588,6 +594,7 @@
 				E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */,
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
+				E1CB1CD41E07C47D00A64108 /* TableViewCategoryCell.swift in Sources */,
 				E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */,
 				E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */,
 				E1584C6B1DFA8AE300F927C4 /* SignInAuthService.swift in Sources */,
@@ -598,6 +605,7 @@
 				E1E0FF1B1DE456BA00CA89B5 /* HTTPRestClient.swift in Sources */,
 				E1CB1CD21E07BECD00A64108 /* ReusableTableViewFooter.swift in Sources */,
 				E15338921DEC106800D6ECDD /* HelpViewController.swift in Sources */,
+				E1CB1CD61E07DD3800A64108 /* CollectionViewProductCell.swift in Sources */,
 				E15338851DEC075E00D6ECDD /* UIColor.swift in Sources */,
 				E1CB1CCC1E07BDA000A64108 /* ReusableTableViewSectionHeaderCell.swift in Sources */,
 				E153388F1DEC0E5B00D6ECDD /* BaseTableViewCell.swift in Sources */,

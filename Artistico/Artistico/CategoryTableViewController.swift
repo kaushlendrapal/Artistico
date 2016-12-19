@@ -9,6 +9,14 @@
 import UIKit
 import Firebase
 
+fileprivate struct RegisteredCellClassIdentifier {
+    
+    static let tableViewCategoryCell:String = "TableViewCategoryCell"
+    static let tableViewSectionHeaderTitleCell:String = "TableViewSectionHeaderTitleCell"
+    static let collectionViewProductCell:String = "CollectionViewProductCell"
+    
+}
+
 class CategoryTableViewController: UITableViewController {
     
     var ref: FIRDatabaseReference!
@@ -16,12 +24,41 @@ class CategoryTableViewController: UITableViewController {
     fileprivate var _refHandle: FIRDatabaseHandle!
     var storageRef: FIRStorageReference!
     
+    deinit {
+        self.ref.child("messages").removeObserver(withHandle: _refHandle)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         self.clearsSelectionOnViewWillAppear = false
-
+        
+        configureDatabase()
+        configureStorage()
+        setUpView()
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setNavigationBarItem()
+        navigationController?.navigationBar.isHidden = false;
+        tableView.reloadData()
+    }
+    
+    func setUpView() -> Void {
+        
+        self.clearsSelectionOnViewWillAppear = true
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.estimatedRowHeight = 210.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(TableViewCategoryCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewCategoryCell)
+        //table section cell
+        tableView.register(TableViewSectionHeaderTitleCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell)
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,35 +68,68 @@ class CategoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return self.messages.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        
+        var tableViewCategoryCell:TableViewCategoryCell!
+        
+            tableViewCategoryCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewCategoryCell, for: indexPath) as! TableViewCategoryCell
+        
+        tableViewCategoryCell.setCollectionViewDataSourceAndDelegate(dataSourceDelegate:self, forRow: indexPath.row)
+            tableViewCategoryCell.configureCategoryCell()
+            return tableViewCategoryCell
+            
+}
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        var tableViewSectionHeaderTitleCell:TableViewSectionHeaderTitleCell!
+        
+        tableViewSectionHeaderTitleCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell) as! TableViewSectionHeaderTitleCell
+        
+        
+       
+        tableViewSectionHeaderTitleCell.configureSectionHeaderTitleCell()
+        
+        return tableViewSectionHeaderTitleCell
     }
-    */
+    
+}
 
-    /*
+extension CategoryTableViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        var collectionViewProductCell:CollectionViewProductCell!
+        
+        collectionViewProductCell = collectionView.dequeueReusableCell(withReuseIdentifier: RegisteredCellClassIdentifier.collectionViewProductCell, for: indexPath) as! CollectionViewProductCell
+        collectionViewProductCell.configureProductCell()
+        
+        return collectionViewProductCell
+    }
+}
+
+extension CategoryTableViewController {
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }
 
 extension CategoryTableViewController {

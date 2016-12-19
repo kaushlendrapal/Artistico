@@ -17,5 +17,8 @@ class ReusableTableViewFooter: UIView {
         // Drawing code
     }
     */
-
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+    
 }

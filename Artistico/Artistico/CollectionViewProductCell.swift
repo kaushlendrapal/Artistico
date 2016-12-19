@@ -1,5 +1,5 @@
 //
-//  ReusableTableViewSectionHeaderCell.swift
+//  CollectionViewProductCell.swift
 //  Artistico
 //
 //  Created by kaushal on 12/19/16.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class TableViewSectionHeaderTitleCell: UITableViewCell {
+class CollectionViewProductCell: UICollectionViewCell {
     
     var didSetConstraints:Bool = false;
-    var estimatedCellHeight:CGFloat = CGFloat(65)
-    var label:UILabel! = UILabel()
+    var estimatedCellSize:CGSize = CGSize(width: 200, height: 200)
+    weak var productView:UIView! = UIView()
+    let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+    
     var layoutConstraint = [NSLayoutConstraint]()
     
     override func awakeFromNib() {
@@ -22,32 +24,33 @@ class TableViewSectionHeaderTitleCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
+        
+        // collection view
+            
     }
     
     override class var requiresConstraintBasedLayout: Bool {
         return true
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        productView.translatesAutoresizingMaskIntoConstraints = false
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
+        contentView.addSubview(productView)
         setupView()
     }
     
     func setupView() -> Void {
-        label.textColor    =   UIColor.black
+        productView.backgroundColor = UIColor.yellow
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height:estimatedCellHeight)
+        return self.estimatedCellSize
     }
     
     override func updateConstraints() {
@@ -60,26 +63,22 @@ class TableViewSectionHeaderTitleCell: UITableViewCell {
         //update constraints if needed
         
         super.updateConstraints()
-        
     }
     
     func addConstraintsForSubView() -> () {
         
         layoutConstraint += [
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
-            label.widthAnchor.constraint(greaterThanOrEqualToConstant: 250),
-            label.heightAnchor.constraint(equalToConstant: 35)
+            productView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            productView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            productView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            productView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
         ]
         
         NSLayoutConstraint.activate(layoutConstraint)
-        
     }
     
-    func configureSectionHeaderTitleCell() -> () {
-        label.text = "Product categories"
+    func configureProductCell() -> () {
         setNeedsUpdateConstraints()
     }
     
-
 }

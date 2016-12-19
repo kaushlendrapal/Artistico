@@ -8,7 +8,7 @@
 
 import UIKit
 
-let controllStanderdWidth = CGFloat(240)
+fileprivate let controllStanderdWidth = CGFloat(240)
 
 
 class TableViewTextFieldCell: UITableViewCell {

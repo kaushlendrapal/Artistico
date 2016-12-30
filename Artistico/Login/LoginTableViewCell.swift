@@ -28,11 +28,12 @@ class LoginTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -80,19 +81,24 @@ class LoginTableViewActionCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    func configureLoginTableActionCell() -> Void {
+        
         submitButton.layer.cornerRadius = 5.0
         submitButton.layer.borderWidth = 2.0
         submitButton.layer.borderColor = UIColor.white.cgColor
         submitButton.clipsToBounds = true
+        
+
+    }
+    
+    func configureLoginTableActionCell() -> Void {
+        
     }
     
     @IBAction func submitButtonTapped(sander:Any) -> Void {
@@ -124,6 +130,7 @@ class SignInWithSocialActionCell: UITableViewCell {
     }
     
     func configureLoginTableActionCell() -> Void {
+        
         googleSignInButton.layer.cornerRadius = 15.0
         twitterSignInButton.layer.cornerRadius = 16.0
         googleSignInButton.clipsToBounds = true

@@ -38,7 +38,7 @@ class RootViewController: UIViewController {
     }
     
     deinit {
-        self.ref.child("messages").removeObserver(withHandle: _refHandle)
+        self.ref.child("categories").removeObserver(withHandle: _refHandle)
     }
     
     
@@ -57,11 +57,10 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
         // Unpack message from Firebase DataSnapshot
         let messageSnapshot: FIRDataSnapshot! = self.messages[indexPath.row]
         let message = messageSnapshot.value as! Dictionary<String, String>
-        let name = message["name"] as String!
-        let text = message["text"] as String!
-        cell.textLabel?.text = name! + ": " + text!
+        let name = message["title"] as String!
+        cell.textLabel?.text = name!
         cell.imageView?.image = UIImage(named: "ic_account_circle")
-        if let imageURL = message["imageURL"] {
+        if let imageURL = message["thumbImage"] {
             if imageURL.hasPrefix("gs://") {
                 FIRStorage.storage().reference(forURL: imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
                     if let error = error {
@@ -75,10 +74,10 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
             }
             cell.textLabel?.text = "sent by: \(name)"
         } else {
-            let text = message["text"] as String!
+            let text = message["title"] as String!
             cell.textLabel?.text = name! + ": " + text!
             cell.imageView?.image = UIImage(named: "ic_account_circle")
-            if let photoURL = message["photoURL"], let URL = URL(string: photoURL), let data = try? Data(contentsOf: URL) {
+            if let photoURL = message["thumbImage"], let URL = URL(string: photoURL), let data = try? Data(contentsOf: URL) {
                 cell.imageView?.image = UIImage(data: data)
             }
         }
@@ -92,10 +91,9 @@ extension RootViewController {
     func configureDatabase() {
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("messages").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+        _refHandle = self.ref.child("categories").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             strongSelf.messages.append(snapshot)
-//            strongSelf.clientTable.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
         })
     }
     

@@ -11,8 +11,8 @@ import UIKit
 class TableViewCategoryCell: UITableViewCell {
     
     var didSetConstraints:Bool = false;
-    var estimatedCellHeight:CGFloat = CGFloat(210)
-    weak var collectionView:UICollectionView!
+    var estimatedCellHeight:CGFloat = CGFloat(150)
+    var collectionView:UICollectionView?
     let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     var layoutConstraint = [NSLayoutConstraint]()
 
@@ -42,11 +42,11 @@ class TableViewCategoryCell: UITableViewCell {
         flowLayout.minimumInteritemSpacing = 1
         flowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize.init(width: 200, height: estimatedCellHeight)
+        flowLayout.itemSize = CGSize.init(width: 150, height: estimatedCellHeight)
         collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout:flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(collectionView)
+        contentView.addSubview(collectionView!)
         setupView()
     }
     
@@ -78,12 +78,15 @@ class TableViewCategoryCell: UITableViewCell {
     
     func addConstraintsForSubView() -> () {
         
-        layoutConstraint += [
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
-        ]
+        if let _ = collectionView {
+            layoutConstraint += [
+                collectionView!.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+                collectionView!.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+                collectionView!.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+                collectionView!.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+                collectionView!.heightAnchor.constraint(greaterThanOrEqualToConstant:estimatedCellHeight)
+            ]
+        }
         
         NSLayoutConstraint.activate(layoutConstraint)
     }
@@ -93,12 +96,14 @@ class TableViewCategoryCell: UITableViewCell {
     }
     
     func setCollectionViewDataSourceAndDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(dataSourceDelegate: D, forRow row: Int) -> () {
-        
-        collectionView.delegate = dataSourceDelegate
-        collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = row
-        collectionView.register(CollectionViewProductCell.self, forCellWithReuseIdentifier: "CollectionViewProductCell")
-        collectionView.reloadData()
+        if let _ = collectionView {
+            
+            collectionView!.delegate = dataSourceDelegate
+            collectionView!.dataSource = dataSourceDelegate
+            collectionView!.tag = row
+            collectionView!.register(CollectionViewProductCell.self, forCellWithReuseIdentifier: "CollectionViewProductCell")
+            collectionView!.reloadData()
+        }
     }
 
 }

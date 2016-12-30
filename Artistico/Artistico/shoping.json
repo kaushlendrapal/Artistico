@@ -1,0 +1,30 @@
+{"categories" : [
+                 {"id": "001", "title": "electronics", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true, "1001": true, "1002": true, "1003": true, "1004": true, "1005": true} },
+                 {"id": "002", "title": "Appliance", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {} },
+                 {"id": "003", "title": "Man", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {} },
+                 {"id": "004", "title": "women", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {} },
+                 {"id": "005", "title": "kids", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {} }
+                 ],
+
+"subCategories" : { "1000" :
+    {"id": "1000", "title": "mobile", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true} },
+    "1001" : {"id": "1001", "title": "mobile accessories", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true} },
+    "1002" :{"id": "1002", "title": "Laptop", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true} },
+    "1003" :{"id": "1003", "title": "computer accessories", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true,"002": true} },
+    "1004" : {"id": "1004", "title": "camera", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true} },
+    "1005" : {"id": "1005", "title": "tablet", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "categories" : {"001": true} }
+    },
+
+    "products" : { "100000" :
+        {"id": "100000", "title": "iPhone4s", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100001" : {"id": "100001", "title": "iPhone5", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100002" :{"id": "100002", "title": "iPhone6", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100003" :{"id": "100003", "title": "iPhone6s", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100004" : {"id": "100004", "title": "iPhone5e", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100005" : {"id": "100005", "title": "iPhone7", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100006" :{"id": "100006", "title": "Moto E", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100007" :{"id": "100007", "title": "Moto G", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100008" : {"id": "100008", "title": "Moto X", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} }
+    }
+}
+

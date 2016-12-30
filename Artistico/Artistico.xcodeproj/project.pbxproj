@@ -35,6 +35,7 @@
 		E1584C791DFABB9C00F927C4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */; };
 		E1584C7A1DFABB9C00F927C4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */; };
 		E1584C7B1DFABB9C00F927C4 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */; };
+		E18BA0951E1393A800CA317C /* shoping.json in Resources */ = {isa = PBXBuildFile; fileRef = E18BA0941E1393A800CA317C /* shoping.json */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
 		E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18FB6A11DD990A70056004F /* Artistico.xcdatamodeld */; };
@@ -50,6 +51,8 @@
 		E1CB1CD21E07BECD00A64108 /* ReusableTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD11E07BECD00A64108 /* ReusableTableViewFooter.swift */; };
 		E1CB1CD41E07C47D00A64108 /* TableViewCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */; };
 		E1CB1CD61E07DD3800A64108 /* CollectionViewProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */; };
+		E1CB1CD81E080B7E00A64108 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD71E080B7E00A64108 /* ProductCollectionViewController.swift */; };
+		E1CB1CDA1E08124000A64108 /* ProductCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB1CD91E08124000A64108 /* ProductCollectionViewLayout.swift */; };
 		E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D0C9581DFE904C003D98A5 /* facebookApp.png */; };
 		E1E0FF151DE4552500CA89B5 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF141DE4552500CA89B5 /* AccountManager.swift */; };
 		E1E0FF181DE455BB00CA89B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0FF171DE455BB00CA89B5 /* User.swift */; };
@@ -101,6 +104,8 @@
 		E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
+		E18BA0941E1393A800CA317C /* shoping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shoping.json; sourceTree = "<group>"; };
+		E18BA0961E14E3DB00CA317C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18FB69A1DD990A70056004F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18FB69F1DD990A70056004F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +125,8 @@
 		E1CB1CD11E07BECD00A64108 /* ReusableTableViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewFooter.swift; sourceTree = "<group>"; };
 		E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCategoryCell.swift; sourceTree = "<group>"; };
 		E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewProductCell.swift; sourceTree = "<group>"; };
+		E1CB1CD71E080B7E00A64108 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+		E1CB1CD91E08124000A64108 /* ProductCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewLayout.swift; sourceTree = "<group>"; };
 		E1D0C9581DFE904C003D98A5 /* facebookApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookApp.png; sourceTree = "<group>"; };
 		E1E0FF141DE4552500CA89B5 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		E1E0FF171DE455BB00CA89B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -165,6 +172,7 @@
 		90AC9442261A51AB2CE9117A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E18BA0961E14E3DB00CA317C /* CoreImage.framework */,
 				E1584C741DFABB9C00F927C4 /* Bolts.framework */,
 				E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */,
 				E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */,
@@ -212,6 +220,8 @@
 		E15338901DEC0FCF00D6ECDD /* businessModule */ = {
 			isa = PBXGroup;
 			children = (
+				E1CB1CD91E08124000A64108 /* ProductCollectionViewLayout.swift */,
+				E1CB1CD71E080B7E00A64108 /* ProductCollectionViewController.swift */,
 				E1CB1CC71E07B0E200A64108 /* CategoryTableViewController.swift */,
 				E1CB1CD51E07DD3800A64108 /* CollectionViewProductCell.swift */,
 				E1CB1CD31E07C47D00A64108 /* TableViewCategoryCell.swift */,
@@ -263,6 +273,7 @@
 		E167ABFF1DEEDD1A005F3533 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				E18BA0941E1393A800CA317C /* shoping.json */,
 				E1D0C9581DFE904C003D98A5 /* facebookApp.png */,
 				E1584C681DF981A700F927C4 /* googleApp.png */,
 				E153389E1DEECA6700D6ECDD /* GoogleService-Info.plist */,
@@ -463,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18FB6A81DD990A70056004F /* LaunchScreen.storyboard in Resources */,
+				E18BA0951E1393A800CA317C /* shoping.json in Resources */,
 				E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */,
 				E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */,
 				E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */,
@@ -595,9 +607,11 @@
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
 				E1CB1CD41E07C47D00A64108 /* TableViewCategoryCell.swift in Sources */,
+				E1CB1CD81E080B7E00A64108 /* ProductCollectionViewController.swift in Sources */,
 				E1584C631DF5778D00F927C4 /* RegisterNewUserViewController.swift in Sources */,
 				E153389D1DEC2C8500D6ECDD /* UIApplication.swift in Sources */,
 				E1584C6B1DFA8AE300F927C4 /* SignInAuthService.swift in Sources */,
+				E1CB1CDA1E08124000A64108 /* ProductCollectionViewLayout.swift in Sources */,
 				E153388B1DEC08C600D6ECDD /* RootViewController.swift in Sources */,
 				E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */,
 				E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */,

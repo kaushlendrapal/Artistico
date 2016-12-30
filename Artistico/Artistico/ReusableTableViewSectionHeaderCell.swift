@@ -44,6 +44,8 @@ class TableViewSectionHeaderTitleCell: UITableViewCell {
     
     func setupView() -> Void {
         label.textColor    =   UIColor.black
+        label.textAlignment = .center
+        
     }
     
     override var intrinsicContentSize: CGSize {
@@ -77,7 +79,7 @@ class TableViewSectionHeaderTitleCell: UITableViewCell {
     }
     
     func configureSectionHeaderTitleCell() -> () {
-        label.text = "Product categories"
+//        label.text = "Product categories"
         setNeedsUpdateConstraints()
     }
     

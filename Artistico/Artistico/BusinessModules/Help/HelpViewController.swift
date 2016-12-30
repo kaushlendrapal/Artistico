@@ -19,4 +19,11 @@ class HelpViewController: UIViewController {
         self.setNavigationBarItem()
     }
     
+    @IBAction func loadProductCategoryScreen(sander:Any)-> () {
+        
+        let productCategoryVC:CategoryTableViewController = CategoryTableViewController.init(style: .plain)
+        show(productCategoryVC, sender: nil)
+        
+    }
+    
 }

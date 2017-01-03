@@ -24,7 +24,14 @@
         "100005" : {"id": "100005", "title": "iPhone7", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
         "100006" :{"id": "100006", "title": "Moto E", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
         "100007" :{"id": "100007", "title": "Moto G", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
-        "100008" : {"id": "100008", "title": "Moto X", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} }
+        "100008" : {"id": "100008", "title": "Moto X", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100009" : {"id": "100009", "title": "Google Pixate", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1000": true} },
+        "100010" : {"id": "100010", "title": "Google CromeBook", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} },
+        "100011" : {"id": "100011", "title": "Lenove ThickPad", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} },
+        "100012" : {"id": "100012", "title": "Lenove Notepad", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} },
+        "100013" : {"id": "100013", "title": "Sony Bios", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} },
+        "100014" : {"id": "100014", "title": "Dell Insperon", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} },
+        "100015" : {"id": "100015", "title": "HP Compact", "thumbImage" : "gs://artistico-eceec.appspot.com/Letters/Letters_C.png", "subCategories" : {"1002": true} }
     }
 }
 

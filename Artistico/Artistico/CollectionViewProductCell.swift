@@ -87,9 +87,13 @@ class CollectionViewProductCell: UICollectionViewCell {
         NSLayoutConstraint.activate(layoutConstraint)
     }
     
-    func configureProductCell() -> () {
+    func configureProductCell(withProduct product:Dictionary<String, Any>) -> () {
         
-        productName.text = "test product"
+        if let title = product["title"] as? String {
+            productName.text = title
+        } else {
+            productName.text = "test Product"
+        }
         setNeedsUpdateConstraints()
     }
     

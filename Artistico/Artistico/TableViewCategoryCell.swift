@@ -95,12 +95,12 @@ class TableViewCategoryCell: UITableViewCell {
         setNeedsUpdateConstraints()
     }
     
-    func setCollectionViewDataSourceAndDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(dataSourceDelegate: D, forRow row: Int) -> () {
+    func setCollectionViewDataSourceAndDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(dataSourceDelegate: D, forRow section: Int) -> () {
         if let _ = collectionView {
             
             collectionView!.delegate = dataSourceDelegate
             collectionView!.dataSource = dataSourceDelegate
-            collectionView!.tag = row
+            collectionView!.tag = section
             collectionView!.register(CollectionViewProductCell.self, forCellWithReuseIdentifier: "CollectionViewProductCell")
             collectionView!.reloadData()
         }

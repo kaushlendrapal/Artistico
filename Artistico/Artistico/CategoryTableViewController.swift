@@ -21,9 +21,13 @@ class CategoryTableViewController: UITableViewController {
     
     var ref: FIRDatabaseReference!
     var productRef: FIRDatabaseReference!
-    var messages: [FIRDataSnapshot]! = []
+    var category:Dictionary<String, Any>?
+    var subCategoryList : [Dictionary<String, Any>]?
+    
     var productList : [Dictionary<String, Any>]?
+    var catogariedProductList : Dictionary<String, Any>?
     fileprivate var _refHandle: FIRDatabaseHandle!
+    fileprivate var _subCategoryRefHandle: FIRDatabaseHandle!
     fileprivate var _productRefHandle: FIRDatabaseHandle!
     var storageRef: FIRStorageReference!
     
@@ -44,19 +48,16 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDatabase()
-        configureStorage()
+        catogariedProductList = Dictionary<String, Any>()
         setUpView()
-       
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setNavigationBarItem()
         navigationController?.navigationBar.isHidden = false;
-         productList = self.getProductList("1000")
-        tableView.reloadData()
+        configureDatabase()
+        configureStorage()
     }
     
     func setUpView() -> Void {
@@ -76,6 +77,29 @@ class CategoryTableViewController: UITableViewController {
         //table section cell
         tableView.register(TableViewSectionHeaderTitleCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell)
         }
+    
+    func configureDatabase() -> () {
+        self.getCategyDetails(title: "electronics", completionHandler:{[unowned self] (categoryDict) in
+            
+            self.category = categoryDict
+            let titleValue = self.category!["id"] as! String
+            
+            if let subCategory = categoryDict["subCategories"] as? Dictionary<String, Bool> {
+                for (key, _) in subCategory {
+                    self.getProductList(key, completionHandler: { (productList) in
+                        self.catogariedProductList?[key] = productList
+                    })
+                }
+            }
+            self.getSubCategoriesList(titleValue, completionHandler: { (subCategorys) in
+                
+                self.subCategoryList = subCategorys
+                DispatchQueue.main.asyncAfter(deadline:.now() + 2.0){ () in
+                    self.tableView.reloadData()
+                }
+            })
+        })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,7 +109,12 @@ class CategoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.messages.count
+        
+        if let subCategoryList = self.subCategoryList {
+            return subCategoryList.count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,7 +127,7 @@ class CategoryTableViewController: UITableViewController {
         
             tableViewCategoryCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewCategoryCell, for: indexPath) as! TableViewCategoryCell
         
-        tableViewCategoryCell.setCollectionViewDataSourceAndDelegate(dataSourceDelegate:self, forRow: indexPath.row)
+        tableViewCategoryCell.setCollectionViewDataSourceAndDelegate(dataSourceDelegate:self, forRow: indexPath.section)
             tableViewCategoryCell.configureCategoryCell()
             return tableViewCategoryCell
             
@@ -111,9 +140,9 @@ class CategoryTableViewController: UITableViewController {
         tableViewSectionHeaderTitleCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell) as! TableViewSectionHeaderTitleCell
         
         tableViewSectionHeaderTitleCell.tag = section
-        let messageSnapshot: FIRDataSnapshot! = self.messages[section]
-        let message = messageSnapshot.value as! Dictionary<String, Any>
-        if let title =  message["title"] as? String {
+        let subCategory = self.subCategoryList![section]
+        
+        if let title =  subCategory["title"] as? String {
             tableViewSectionHeaderTitleCell.label.text = title
         } else {
             tableViewSectionHeaderTitleCell.label.text = Global.kEmptyString
@@ -140,7 +169,14 @@ extension CategoryTableViewController : UICollectionViewDataSource, UICollection
     }
     
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        let subCategory = self.subCategoryList![collectionView.tag]
+        let categoryId:String = (subCategory["id"] as? String)!
+        if let productList:[Dictionary<String, Any>] = catogariedProductList?[categoryId] as! [Dictionary<String, Any>]?  {
+            return productList.count
+        } else {
+            return 0
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -148,7 +184,12 @@ extension CategoryTableViewController : UICollectionViewDataSource, UICollection
         var collectionViewProductCell:CollectionViewProductCell!
         
         collectionViewProductCell = collectionView.dequeueReusableCell(withReuseIdentifier: RegisteredCellClassIdentifier.collectionViewProductCell, for: indexPath) as! CollectionViewProductCell
-        collectionViewProductCell.configureProductCell()
+        let subCategory = self.subCategoryList![collectionView.tag]
+        let categoryId:String = (subCategory["id"] as? String)!
+        if let productList:[Dictionary<String, Any>] = catogariedProductList?[categoryId] as! [Dictionary<String, Any>]?  {
+            let productDetail:Dictionary<String, Any> = productList[indexPath.row]
+            collectionViewProductCell.configureProductCell(withProduct: productDetail)
+        }
         
         return collectionViewProductCell
     }
@@ -176,36 +217,65 @@ extension CategoryTableViewController {
 
 extension CategoryTableViewController {
     
-    func configureDatabase() {
-        ref = FIRDatabase.database().reference()
-        // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("categories").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else {
-                return
-            }
-            strongSelf.messages.append(snapshot)
-        })
-    }
-    
     func configureStorage() {
         let storageUrl = FIRApp.defaultApp()?.options.storageBucket
         storageRef = FIRStorage.storage().reference(forURL: "gs://" + storageUrl!)
     }
-    //queryOrdered(byChild:"title)").queryEqual(toValue: "iPhone4s")
-    func getProductList(_ subCategory:String) -> [Dictionary<String, Any>] {
+    
+    func getCategyDetails(title:String, completionHandler:@escaping ((_ category:Dictionary<String, Any>)->())) {
+        ref = FIRDatabase.database().reference()
+        // Listen for new messages in the Firebase database
+        _refHandle = self.ref.child("categories").queryOrdered(byChild: "title").queryEqual(toValue:"electronics").observe(.value, with: { (snapshot) -> Void in
+            
+            print("snap \(snapshot)")
+            if let categoryList = snapshot.value as? [Dictionary<String, Any>] {
+                if categoryList.count > 0 {
+                    completionHandler(categoryList[0])
+                }
+            }
+        }, withCancel: { (error) in
+            print(error)
+        })
+    }
+    
+    func getSubCategoriesList(_ category:String, completionHandler:@escaping ((_ subCatogaries:[Dictionary<String, Any>])->())) -> () {
+
+        productRef = FIRDatabase.database().reference().child("subCategories")
+        var subCategories : [Dictionary<String, Any>] = [Dictionary<String, Any>]()
+        _subCategoryRefHandle = productRef.queryOrdered(byChild: "categories/\(category)").queryEqual(toValue:true).observe(.value, with: { (snapshot) -> Void in
+            
+            print("snap \(snapshot)")
+            if let subCategoryDict = snapshot.value as? Dictionary<String, Any> {
+                for (_, value) in subCategoryDict {
+                    subCategories.append(value as! [String : Any])
+                }
+                completionHandler(subCategories)
+            }
+            
+        }, withCancel: { (error) in
+            print(error)
+        })
+        
+    }
+    
+    func getProductList(_ subCategory:String, completionHandler:@escaping ((_ productList:[Dictionary<String, Any>])->())) -> () {
         var productList = [Dictionary<String, Any>]()
-        productRef = FIRDatabase.database().reference()
-        _productRefHandle = FIRDatabase.database().reference().child("products").observe(.value, with: { (snapshot) -> Void in
+        productRef = FIRDatabase.database().reference().child("products")
+        
+        _productRefHandle = productRef.queryOrdered(byChild: "subCategories/\(subCategory)").queryEqual(toValue:true).observe(.value, with: { (snapshot) -> Void in
             
             print("snap \(snapshot)")
             if let productDict = snapshot.value as? Dictionary<String, Any> {
                 for (_, value) in productDict {
                     productList.append(value as! [String : Any])
                 }
+                completionHandler(productList)
             }
+            
+        }, withCancel: { (error) in
+            print(error)
         })
         
-        return productList;
     }
     
 }

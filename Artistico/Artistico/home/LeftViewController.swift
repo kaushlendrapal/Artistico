@@ -9,10 +9,10 @@ import UIKit
 
 enum LeftMenu: Int {
     case main = 0
-    case help1
-    case setting
-    case help
-    case nonMenu
+    case electronics
+    case appliance
+    case man
+    case women
 }
 
 protocol LeftMenuProtocol : class {
@@ -22,12 +22,12 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Main", "Help1", "Setting", "Help", "NonMenu"]
+    var menus = ["Main", "Electronics", "Appliace", "Man", "Women"]
     var mainViewController: UIViewController!
-    var swiftViewController: UIViewController!
-    var javaViewController: UIViewController!
-    var goViewController: UIViewController!
-    var nonMenuViewController: UIViewController!
+    var electronicViewController: UIViewController!
+    var applianceViewController: UIViewController!
+    var manViewController: UIViewController!
+    var womenViewController: UIViewController!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,19 +38,24 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         self.tableView.separatorColor = UIColor.white
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let swiftViewController = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as! HelpViewController
-        self.swiftViewController = UINavigationController(rootViewController: swiftViewController)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let javaViewController = storyboard.instantiateViewController(withIdentifier: "ProfileSettingViewController") as! ProfileSettingViewController
-        self.javaViewController = UINavigationController(rootViewController: javaViewController)
+        let electronicCategoryVC:CategoryTableViewController = CategoryTableViewController.init(style: .plain, title: "electronics")
+        self.electronicViewController = UINavigationController(rootViewController: electronicCategoryVC)
+        let applianceCategoryVC:CategoryTableViewController = CategoryTableViewController.init(style: .plain, title: "Appliance")
+
+//        let javaViewController = storyboard.instantiateViewController(withIdentifier: "ProfileSettingViewController") as! ProfileSettingViewController
         
-        let goViewController = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as! HelpViewController
-        self.goViewController = UINavigationController(rootViewController: goViewController)
+        self.applianceViewController = UINavigationController(rootViewController: applianceCategoryVC)
         
-        let nonMenuController = storyboard.instantiateViewController(withIdentifier: "NonMenuController") as! NonMenuController
-        nonMenuController.delegate = self
-        self.nonMenuViewController = UINavigationController(rootViewController: nonMenuController)
+//        let goViewController = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as! HelpViewController
+        let manCategoryVC:CategoryTableViewController = CategoryTableViewController.init(style: .plain, title: "Man")
+        self.manViewController = UINavigationController(rootViewController: manCategoryVC)
+        
+//        let nonMenuController = storyboard.instantiateViewController(withIdentifier: "NonMenuController") as! NonMenuController
+//        nonMenuController.delegate = self
+        let womanCategoryVC:CategoryTableViewController = CategoryTableViewController.init(style: .plain, title: "woman")
+        self.womenViewController = UINavigationController(rootViewController: womanCategoryVC)
         
         self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -68,14 +73,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         switch menu {
         case .main:
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-        case .help1:
-            self.slideMenuController()?.changeMainViewController(self.swiftViewController, close: true)
-        case .setting:
-            self.slideMenuController()?.changeMainViewController(self.javaViewController, close: true)
-        case .help:
-            self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
-        case .nonMenu:
-            self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
+        case .electronics:
+            self.slideMenuController()?.changeMainViewController(self.electronicViewController, close: true)
+        case .appliance:
+            self.slideMenuController()?.changeMainViewController(self.applianceViewController, close: true)
+        case .man:
+            self.slideMenuController()?.changeMainViewController(self.manViewController, close: true)
+        case .women:
+            self.slideMenuController()?.changeMainViewController(self.womenViewController, close: true)
         }
     }
 }
@@ -84,7 +89,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .main, .help1, .setting, .help, .nonMenu:
+            case .main, .electronics, .appliance, .man, .women:
                 return BaseTableViewCell.height()
             }
         }
@@ -114,7 +119,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .main, .help1, .setting, .help, .nonMenu:
+            case .main, .electronics, .appliance, .man, .women:
                 let cell = BaseTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: BaseTableViewCell.identifier)
                 cell.setData(menus[indexPath.row])
                 return cell

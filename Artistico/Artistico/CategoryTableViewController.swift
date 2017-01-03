@@ -19,12 +19,12 @@ fileprivate struct RegisteredCellClassIdentifier {
 
 class CategoryTableViewController: UITableViewController {
     
-    var ref: FIRDatabaseReference!
-    var productRef: FIRDatabaseReference!
-    var category:Dictionary<String, Any>?
-    var subCategoryList : [Dictionary<String, Any>]?
+    var categoryTitle:String = "electronics"
     
-    var productList : [Dictionary<String, Any>]?
+    fileprivate var ref: FIRDatabaseReference!
+    fileprivate var productRef: FIRDatabaseReference!
+    fileprivate var category:Dictionary<String, Any>?
+    var subCategoryList : [Dictionary<String, Any>]?
     var catogariedProductList : Dictionary<String, Any>?
     fileprivate var _refHandle: FIRDatabaseHandle!
     fileprivate var _subCategoryRefHandle: FIRDatabaseHandle!
@@ -40,9 +40,14 @@ class CategoryTableViewController: UITableViewController {
         super.init(coder: aDecoder)!
     }
     
-    override init(style: UITableViewStyle){
+   required override init(style: UITableViewStyle){
         super.init(style: style)
         // update custom init
+    }
+    
+   convenience init(style: UITableViewStyle, title:String) {
+        self.init(style: style)
+        self.categoryTitle = title
     }
     
     override func viewDidLoad() {
@@ -52,9 +57,13 @@ class CategoryTableViewController: UITableViewController {
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBarItem()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setNavigationBarItem()
         navigationController?.navigationBar.isHidden = false;
         configureDatabase()
         configureStorage()
@@ -79,7 +88,8 @@ class CategoryTableViewController: UITableViewController {
         }
     
     func configureDatabase() -> () {
-        self.getCategyDetails(title: "electronics", completionHandler:{[unowned self] (categoryDict) in
+        
+        self.getCategyDetails(title:categoryTitle, completionHandler:{[unowned self] (categoryDict) in
             
             self.category = categoryDict
             let titleValue = self.category!["id"] as! String
@@ -225,7 +235,7 @@ extension CategoryTableViewController {
     func getCategyDetails(title:String, completionHandler:@escaping ((_ category:Dictionary<String, Any>)->())) {
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("categories").queryOrdered(byChild: "title").queryEqual(toValue:"electronics").observe(.value, with: { (snapshot) -> Void in
+        _refHandle = self.ref.child("categories").queryOrdered(byChild: "title").queryEqual(toValue:title).observe(.value, with: { (snapshot) -> Void in
             
             print("snap \(snapshot)")
             if let categoryList = snapshot.value as? [Dictionary<String, Any>] {

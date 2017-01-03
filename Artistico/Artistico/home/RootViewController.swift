@@ -9,10 +9,19 @@
 import UIKit
 import Firebase
 
+fileprivate struct RegisteredCellClassIdentifier {
+    
+    static let tableViewCell:String = "UITableViewCell"
+    static let tableViewSectionHeaderTitleCell:String = "TableViewSectionHeaderTitleCell"
+    
+}
+
 class RootViewController: UIViewController {
     
     var ref: FIRDatabaseReference!
     var messages: [FIRDataSnapshot]! = []
+    var categoryList : [Dictionary<String, Any>]?
+    var subCategoryIndexDetail :Dictionary<String, Any>?
     fileprivate var _refHandle: FIRDatabaseHandle!
     var storageRef: FIRStorageReference!
     @IBOutlet weak var clientTable: UITableView!
@@ -20,16 +29,32 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.clientTable.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
-        configureDatabase()
-        configureStorage()
+        setUpView()
+        
+    }
+    
+    func setUpView() -> Void {
+        
+        self.clientTable.tableFooterView = UIView(frame: CGRect.zero)
+        self.clientTable.estimatedRowHeight = 100.0
+        self.clientTable.rowHeight = UITableViewAutomaticDimension
+        self.clientTable.sectionHeaderHeight = UITableViewAutomaticDimension
+        self.clientTable.estimatedSectionHeaderHeight = 65
+        self.clientTable.allowsSelection = false
+        self.clientTable.separatorStyle = .none
+        self.clientTable.delegate = self
+        self.clientTable.dataSource = self
+        
+        self.clientTable.register(UITableViewCell.self, forCellReuseIdentifier:RegisteredCellClassIdentifier.tableViewCell)
+        self.clientTable.register(TableViewSectionHeaderTitleCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setNavigationBarItem()
        navigationController?.navigationBar.isHidden = false;
-        clientTable.reloadData()
+        configureStorage()
+        configureDatabase()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,55 +72,99 @@ class RootViewController: UIViewController {
 
 extension RootViewController : UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if let categoryList = self.categoryList {
+            return categoryList.count
+        } else {
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
-        let cell = self.clientTable .dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-        // Unpack message from Firebase DataSnapshot
-        let messageSnapshot: FIRDataSnapshot! = self.messages[indexPath.row]
-        let message = messageSnapshot.value as! Dictionary<String, String>
-        let name = message["title"] as String!
-        cell.textLabel?.text = name!
-        cell.imageView?.image = UIImage(named: "ic_account_circle")
-        if let imageURL = message["thumbImage"] {
-            if imageURL.hasPrefix("gs://") {
-                FIRStorage.storage().reference(forURL: imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
-                    if let error = error {
-                        print("Error downloading: \(error)")
-                        return
-                    }
-                    cell.imageView?.image = UIImage.init(data: data!)
-                }
-            } else if let URL = URL(string: imageURL), let data = try? Data(contentsOf: URL) {
-                cell.imageView?.image = UIImage.init(data: data)
-            }
-            cell.textLabel?.text = "sent by: \(name)"
-        } else {
-            let text = message["title"] as String!
-            cell.textLabel?.text = name! + ": " + text!
-            cell.imageView?.image = UIImage(named: "ic_account_circle")
-            if let photoURL = message["thumbImage"], let URL = URL(string: photoURL), let data = try? Data(contentsOf: URL) {
-                cell.imageView?.image = UIImage(data: data)
-            }
-        }
+        let cell = self.clientTable .dequeueReusableCell(withIdentifier:RegisteredCellClassIdentifier.tableViewCell, for: indexPath)
+       
+        cell.textLabel?.text = "category"
+        cell.imageView?.image = UIImage(named: "guest_user")
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        var tableViewSectionHeaderTitleCell:TableViewSectionHeaderTitleCell!
+    
+        tableViewSectionHeaderTitleCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell) as! TableViewSectionHeaderTitleCell
+        
+        tableViewSectionHeaderTitleCell.tag = section
+        let category = self.categoryList![section]
+        
+        if let title =  category["title"] as? String {
+            tableViewSectionHeaderTitleCell.label.text = title
+        } else {
+            tableViewSectionHeaderTitleCell.label.text = Global.kEmptyString
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TapGestureRecognizer(gestureRecognizer:)))
+        tapGesture.numberOfTouchesRequired = 1;
+        tapGesture.numberOfTapsRequired = 1;
+        tableViewSectionHeaderTitleCell.addGestureRecognizer(tapGesture)
+        
+        tableViewSectionHeaderTitleCell.configureSectionHeaderTitleCell()
+        
+        return tableViewSectionHeaderTitleCell
+    }
+    
+    func TapGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {
+        //do your stuff here
+        if let headerView = gestureRecognizer.view {
+            let _ :Int = headerView.tag
+//            let flowLayout = ProductCollectionViewLayout.init(flowType: .productLayouy)
+//            let productViewController = ProductCollectionViewController.init(keyPath: "test.category.mango", collectionViewLayout: flowLayout)
+//            show(productViewController, sender:nil)
+            
+        }
+    }
+
 }
 
 extension RootViewController {
     
     func configureDatabase() {
+        
+        self.getCategyDetails(completionHandler:{[unowned self] (categories) in
+            
+            self.categoryList = categories
+            DispatchQueue.main.asyncAfter(deadline:.now() + 2.0){ () in
+                self.clientTable.reloadData()
+            }
+//            if let subCategory = categoryDict["subCategories"] as? Dictionary<String, Bool> {
+//                for (key, _) in subCategory {
+//                    
+//                }
+//            }
+        })
+        
+    }
+    
+    func getCategyDetails(completionHandler:@escaping ((_ category:[Dictionary<String, Any>])->())) {
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("categories").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            strongSelf.messages.append(snapshot)
+        _refHandle = self.ref.child("categories").observe(.value, with: { (snapshot) -> Void in
+            print("snap \(snapshot)")
+            if let categoryList = snapshot.value as? [Dictionary<String, Any>] {
+                completionHandler(categoryList)
+            }
+        }, withCancel: { (error) in
+            print(error)
         })
     }
+    
     
     func configureStorage() {
         let storageUrl = FIRApp.defaultApp()?.options.storageBucket

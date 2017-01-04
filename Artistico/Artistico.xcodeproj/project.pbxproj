@@ -13,6 +13,7 @@
 		E10FE3121DE07BD600F55D57 /* Gradiant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3111DE07BD600F55D57 /* Gradiant.swift */; };
 		E10FE3141DE0B0C100F55D57 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */; };
 		E10FE3161DE0B9C900F55D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FE3151DE0B9C900F55D57 /* Constants.swift */; };
+		E149BE4F1E1D04E5009AE359 /* shopingRules.json in Resources */ = {isa = PBXBuildFile; fileRef = E149BE4E1E1D04E5009AE359 /* shopingRules.json */; };
 		E15338811DEC06D000D6ECDD /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338801DEC06D000D6ECDD /* UITableView.swift */; };
 		E15338831DEC070100D6ECDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338821DEC070100D6ECDD /* String.swift */; };
 		E15338851DEC075E00D6ECDD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15338841DEC075E00D6ECDD /* UIColor.swift */; };
@@ -81,6 +82,7 @@
 		E10FE3111DE07BD600F55D57 /* Gradiant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gradiant.swift; path = utility/Gradiant.swift; sourceTree = SOURCE_ROOT; };
 		E10FE3131DE0B0C100F55D57 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTableViewCell.swift; path = Login/LoginTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E10FE3151DE0B9C900F55D57 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
+		E149BE4E1E1D04E5009AE359 /* shopingRules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopingRules.json; sourceTree = "<group>"; };
 		E15338801DEC06D000D6ECDD /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = utility/extension/UITableView.swift; sourceTree = SOURCE_ROOT; };
 		E15338821DEC070100D6ECDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = utility/extension/String.swift; sourceTree = SOURCE_ROOT; };
 		E15338841DEC075E00D6ECDD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = utility/extension/UIColor.swift; sourceTree = SOURCE_ROOT; };
@@ -273,6 +275,7 @@
 		E167ABFF1DEEDD1A005F3533 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				E149BE4E1E1D04E5009AE359 /* shopingRules.json */,
 				E18BA0941E1393A800CA317C /* shoping.json */,
 				E1D0C9581DFE904C003D98A5 /* facebookApp.png */,
 				E1584C681DF981A700F927C4 /* googleApp.png */,
@@ -477,6 +480,7 @@
 				E18BA0951E1393A800CA317C /* shoping.json in Resources */,
 				E1D0C9591DFE904C003D98A5 /* facebookApp.png in Resources */,
 				E153389F1DEECA6700D6ECDD /* GoogleService-Info.plist in Resources */,
+				E149BE4F1E1D04E5009AE359 /* shopingRules.json in Resources */,
 				E18FB6A51DD990A70056004F /* Assets.xcassets in Resources */,
 				E18FB6A01DD990A70056004F /* Main.storyboard in Resources */,
 				E1584C691DF981A700F927C4 /* googleApp.png in Resources */,

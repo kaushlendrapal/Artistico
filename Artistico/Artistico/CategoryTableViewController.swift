@@ -65,6 +65,7 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.isHidden = false;
+        self.title = categoryTitle
         configureDatabase()
         configureStorage()
     }

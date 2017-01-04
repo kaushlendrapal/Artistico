@@ -1,0 +1,30 @@
+{
+    "rules": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        "categories": {
+            ".read": true,
+            ".write": true,
+            // the value of "category" must be a number between 0 and 999
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 999"
+        },
+        "products": {
+            ".read": true,
+            ".write":true,
+            ".indexOn" : "subCategories",
+            // the value of "product" must be a number grather then 100000
+            ".validate": "newData.isNumber() && newData.val() >= 1000 && newData.val() <= 99999"
+        },
+        "subCategories": {
+            ".read": true,
+            ".write":true,
+            "$subCategorie": {
+                "categories": {
+                    ".indexOn" : ".value",
+                }
+            },
+            // the value of "subCategorie" must be a number between 1000 and 99999
+            ".validate": "newData.isNumber() && newData.val() >= 1000 && newData.val() <= 99999"
+        }
+    }
+}

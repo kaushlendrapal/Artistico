@@ -23,6 +23,7 @@ class RootViewController: UIViewController {
     var categoryList : [Dictionary<String, Any>]?
     var subCategoryIndexDetail :Dictionary<String, Any>?
     fileprivate var _refHandle: FIRDatabaseHandle!
+    fileprivate var _subCategoryRefHandle: FIRDatabaseHandle!
     var storageRef: FIRStorageReference!
     @IBOutlet weak var clientTable: UITableView!
 
@@ -30,6 +31,7 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpView()
+        self.subCategoryIndexDetail = Dictionary<String, Any>()
         
     }
     
@@ -53,6 +55,7 @@ class RootViewController: UIViewController {
         super.viewDidAppear(animated)
         self.setNavigationBarItem()
        navigationController?.navigationBar.isHidden = false;
+        self.title = "All Categories"
         configureStorage()
         configureDatabase()
     }
@@ -65,8 +68,6 @@ class RootViewController: UIViewController {
     deinit {
         self.ref.child("categories").removeObserver(withHandle: _refHandle)
     }
-    
-    
 
 }
 
@@ -82,14 +83,31 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        guard let categoryInfo = self.categoryList?[section] else {
+            return 0
+        }
+        let categoryId:String = categoryInfo["id"] as! String
+        guard let categories:[Dictionary<String, Any>] = self.subCategoryIndexDetail?[categoryId] as! [Dictionary<String, Any>]? else {
+            return 0
+        }
+        
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
         let cell = self.clientTable .dequeueReusableCell(withIdentifier:RegisteredCellClassIdentifier.tableViewCell, for: indexPath)
        
-        cell.textLabel?.text = "category"
+         let categoryInfo = self.categoryList![indexPath.section]
+        
+        let categoryId:String = categoryInfo["id"] as! String
+        guard let subCategories:[Dictionary<String, Any>] = self.subCategoryIndexDetail?[categoryId] as! [Dictionary<String, Any>]? else {
+            return UITableViewCell()
+        }
+        let subCategoryInfo = subCategories[indexPath.row]
+        
+        cell.textLabel?.text = subCategoryInfo["title"] as? String
         cell.imageView?.image = UIImage(named: "guest_user")
         
         return cell
@@ -124,9 +142,6 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
         //do your stuff here
         if let headerView = gestureRecognizer.view {
             let _ :Int = headerView.tag
-//            let flowLayout = ProductCollectionViewLayout.init(flowType: .productLayouy)
-//            let productViewController = ProductCollectionViewController.init(keyPath: "test.category.mango", collectionViewLayout: flowLayout)
-//            show(productViewController, sender:nil)
             
         }
     }
@@ -140,14 +155,19 @@ extension RootViewController {
         self.getCategyDetails(completionHandler:{[unowned self] (categories) in
             
             self.categoryList = categories
+            
+            
+            for categoryDict:Dictionary<String, Any> in categories {
+                let titleValue = categoryDict["id"] as! String
+                
+                self.getSubCategoriesList(titleValue, completionHandler: { (subCategorys) in
+                    self.subCategoryIndexDetail?[titleValue] = subCategorys
+                })
+            }
+            
             DispatchQueue.main.asyncAfter(deadline:.now() + 2.0){ () in
                 self.clientTable.reloadData()
             }
-//            if let subCategory = categoryDict["subCategories"] as? Dictionary<String, Bool> {
-//                for (key, _) in subCategory {
-//                    
-//                }
-//            }
         })
         
     }
@@ -165,6 +185,23 @@ extension RootViewController {
         })
     }
     
+    func getSubCategoriesList(_ category:String, completionHandler:@escaping ((_ subCatogaries:[Dictionary<String, Any>])->())) -> () {
+        
+        var subCategories : [Dictionary<String, Any>] = [Dictionary<String, Any>]()
+        _subCategoryRefHandle = FIRDatabase.database().reference().child("subCategories").queryOrdered(byChild: "categories/\(category)").queryEqual(toValue:true).observe(.value, with: { (snapshot) -> Void in
+            
+            print("snap \(snapshot)")
+            if let subCategoryDict = snapshot.value as? Dictionary<String, Any> {
+                for (_, value) in subCategoryDict {
+                    subCategories.append(value as! [String : Any])
+                }
+                completionHandler(subCategories)
+            }
+            
+        }, withCancel: { (error) in
+            print(error)
+        })
+    }
     
     func configureStorage() {
         let storageUrl = FIRApp.defaultApp()?.options.storageBucket

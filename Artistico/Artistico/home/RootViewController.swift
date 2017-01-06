@@ -11,7 +11,7 @@ import Firebase
 
 fileprivate struct RegisteredCellClassIdentifier {
     
-    static let tableViewCell:String = "UITableViewCell"
+    static let subCategoryTableViewCell:String = "SubCategoryTableViewCell"
     static let tableViewSectionHeaderTitleCell:String = "TableViewSectionHeaderTitleCell"
     
 }
@@ -38,7 +38,7 @@ class RootViewController: UIViewController {
     func setUpView() -> Void {
         
         self.clientTable.tableFooterView = UIView(frame: CGRect.zero)
-        self.clientTable.estimatedRowHeight = 100.0
+        self.clientTable.estimatedRowHeight = 65.0
         self.clientTable.rowHeight = UITableViewAutomaticDimension
         self.clientTable.sectionHeaderHeight = UITableViewAutomaticDimension
         self.clientTable.estimatedSectionHeaderHeight = 65
@@ -47,7 +47,7 @@ class RootViewController: UIViewController {
         self.clientTable.delegate = self
         self.clientTable.dataSource = self
         
-        self.clientTable.register(UITableViewCell.self, forCellReuseIdentifier:RegisteredCellClassIdentifier.tableViewCell)
+        self.clientTable.register(SubCategoryTableViewCell.self, forCellReuseIdentifier:RegisteredCellClassIdentifier.subCategoryTableViewCell)
         self.clientTable.register(TableViewSectionHeaderTitleCell.self, forCellReuseIdentifier: RegisteredCellClassIdentifier.tableViewSectionHeaderTitleCell)
     }
     
@@ -97,20 +97,38 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
-        let cell = self.clientTable .dequeueReusableCell(withIdentifier:RegisteredCellClassIdentifier.tableViewCell, for: indexPath)
-       
-         let categoryInfo = self.categoryList![indexPath.section]
+        var subCategoryTableViewCell:SubCategoryTableViewCell!
         
+        subCategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: RegisteredCellClassIdentifier.subCategoryTableViewCell, for: indexPath) as! SubCategoryTableViewCell
+       
+        
+        let categoryInfo = self.categoryList![indexPath.section]
         let categoryId:String = categoryInfo["id"] as! String
         guard let subCategories:[Dictionary<String, Any>] = self.subCategoryIndexDetail?[categoryId] as! [Dictionary<String, Any>]? else {
             return UITableViewCell()
         }
         let subCategoryInfo = subCategories[indexPath.row]
         
-        cell.textLabel?.text = subCategoryInfo["title"] as? String
-        cell.imageView?.image = UIImage(named: "guest_user")
+        subCategoryTableViewCell.subCategoryName.text = subCategoryInfo["title"] as? String
+        subCategoryTableViewCell.subCategoryImageView.image = UIImage(named: "guest_user")
+        subCategoryTableViewCell.configureCategoryCell()
+
+        if let imageURL = subCategoryInfo["thumbImage"] as? String {
+            if imageURL.hasPrefix("gs://") {
+                subCategoryTableViewCell.activityIndicator.startAnimating()
+                FIRStorage.storage().reference(forURL:imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
+                    if let error = error {
+                        print("Error downloading: \(error)")
+                        return
+                    }
+                    subCategoryTableViewCell.subCategoryImageView.image = UIImage.init(data: data!)
+                    subCategoryTableViewCell.activityIndicator.stopAnimating()
+                    subCategoryTableViewCell.setNeedsLayout()
+                }
+            }
+        }
         
-        return cell
+        return subCategoryTableViewCell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -136,6 +154,10 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
         tableViewSectionHeaderTitleCell.configureSectionHeaderTitleCell()
         
         return tableViewSectionHeaderTitleCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
     }
     
     func TapGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {

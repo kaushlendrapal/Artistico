@@ -36,6 +36,7 @@
 		E1584C791DFABB9C00F927C4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C751DFABB9C00F927C4 /* FBSDKCoreKit.framework */; };
 		E1584C7A1DFABB9C00F927C4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */; };
 		E1584C7B1DFABB9C00F927C4 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */; };
+		E16918B01E1FB8180026879C /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16918AF1E1FB8180026879C /* SubCategoryTableViewCell.swift */; };
 		E18BA0951E1393A800CA317C /* shoping.json in Resources */ = {isa = PBXBuildFile; fileRef = E18BA0941E1393A800CA317C /* shoping.json */; };
 		E18FB69B1DD990A70056004F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FB69A1DD990A70056004F /* AppDelegate.swift */; };
 		E18FB6A01DD990A70056004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18FB69E1DD990A70056004F /* Main.storyboard */; };
@@ -106,6 +107,7 @@
 		E1584C761DFABB9C00F927C4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E1584C771DFABB9C00F927C4 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E167AC041DEEEA7E005F3533 /* Artistico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artistico.entitlements; sourceTree = "<group>"; };
+		E16918AF1E1FB8180026879C /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		E18BA0941E1393A800CA317C /* shoping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shoping.json; sourceTree = "<group>"; };
 		E18BA0961E14E3DB00CA317C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		E18FB6971DD990A70056004F /* Artistico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artistico.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 		E106CFD01DE836DD00B24FCA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E16918AF1E1FB8180026879C /* SubCategoryTableViewCell.swift */,
 				E153388E1DEC0E5B00D6ECDD /* BaseTableViewCell.swift */,
 				E153388C1DEC0B5C00D6ECDD /* LeftViewController.swift */,
 				E153388A1DEC08C600D6ECDD /* RootViewController.swift */,
@@ -609,6 +612,7 @@
 			files = (
 				E15338981DEC116600D6ECDD /* ProfileSettingViewController.swift in Sources */,
 				E18FB6C21DD9954A0056004F /* LoginViewController.swift in Sources */,
+				E16918B01E1FB8180026879C /* SubCategoryTableViewCell.swift in Sources */,
 				E18FB6A31DD990A70056004F /* Artistico.xcdatamodeld in Sources */,
 				E1CB1CD41E07C47D00A64108 /* TableViewCategoryCell.swift in Sources */,
 				E1CB1CD81E080B7E00A64108 /* ProductCollectionViewController.swift in Sources */,

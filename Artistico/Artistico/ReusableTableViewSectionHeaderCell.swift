@@ -43,6 +43,7 @@ class TableViewSectionHeaderTitleCell: UITableViewCell {
     }
     
     func setupView() -> Void {
+        backgroundColor = ColorStyle.tableHeaderBGColor
         label.textColor    =   UIColor.black
         label.textAlignment = .center
         

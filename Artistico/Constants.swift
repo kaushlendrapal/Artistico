@@ -57,6 +57,7 @@ struct TextStyleGuide {
 struct ColorStyle {
     
     static let backgroundColor:UIColor = UIColor.hexStringToUIColor(hex: "00C895")
+    static let tableHeaderBGColor:UIColor = UIColor.hexStringToUIColor(hex: "00C895", alphaValue:0.2)
     
 }
 

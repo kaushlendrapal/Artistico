@@ -38,7 +38,7 @@ class RootViewController: UIViewController {
     func setUpView() -> Void {
         
         self.clientTable.tableFooterView = UIView(frame: CGRect.zero)
-        self.clientTable.estimatedRowHeight = 65.0
+        self.clientTable.estimatedRowHeight = 100.0
         self.clientTable.rowHeight = UITableViewAutomaticDimension
         self.clientTable.sectionHeaderHeight = UITableViewAutomaticDimension
         self.clientTable.estimatedSectionHeaderHeight = 65
@@ -156,9 +156,13 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
         return tableViewSectionHeaderTitleCell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 65.0
+//    }
     
     func TapGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {
         //do your stuff here
@@ -167,7 +171,6 @@ extension RootViewController : UITableViewDelegate, UITableViewDataSource {
             
         }
     }
-
 }
 
 extension RootViewController {

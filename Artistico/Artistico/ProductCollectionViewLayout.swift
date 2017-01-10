@@ -28,7 +28,7 @@ class ProductCollectionViewLayout: UICollectionViewFlowLayout {
         minimumInteritemSpacing = 1
         sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         scrollDirection = .horizontal
-        itemSize = CGSize.init(width: 150, height: 150)
+        itemSize = CGSize.init(width: 150, height: 180)
     }
     
     init(flowType:CollectionViewFlowLayout) {
@@ -60,7 +60,7 @@ class ProductCollectionViewLayout: UICollectionViewFlowLayout {
             minimumInteritemSpacing = 1
             sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
             scrollDirection = .horizontal
-            itemSize = CGSize.init(width: 150, height: 150)
+            itemSize = CGSize.init(width: 150, height: 180)
         }
     }
     

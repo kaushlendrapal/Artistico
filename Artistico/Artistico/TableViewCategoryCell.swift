@@ -11,7 +11,7 @@ import UIKit
 class TableViewCategoryCell: UITableViewCell {
     
     var didSetConstraints:Bool = false;
-    var estimatedCellHeight:CGFloat = CGFloat(150)
+    var estimatedCellHeight:CGFloat = CGFloat(180)
     var collectionView:UICollectionView?
     let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     var layoutConstraint = [NSLayoutConstraint]()

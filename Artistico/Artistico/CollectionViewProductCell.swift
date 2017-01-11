@@ -73,7 +73,7 @@ class CollectionViewProductCell: UICollectionViewCell {
     }
     
     func setupView() -> Void {
-        productView.backgroundColor = UIColor.yellow
+        productView.backgroundColor = UIColor.white
         favouriteButton.setImage(UIImage.init(named: "favorite_enabled"), for: .normal)
     }
     

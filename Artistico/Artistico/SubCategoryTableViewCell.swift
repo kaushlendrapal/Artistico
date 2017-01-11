@@ -39,16 +39,11 @@ class SubCategoryTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        if reuseIdentifier != Global.kEmptyString && reuseIdentifier == "SubCategoryTableViewCell" {
-            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 65).isActive = true
-        }
+         contentView.autoresizingMask = [.flexibleLeftMargin, .flexibleLeftMargin,.flexibleBottomMargin,.flexibleRightMargin,  .flexibleHeight, .flexibleWidth]
         
         subCategoryName.translatesAutoresizingMaskIntoConstraints = false
         subCategoryImageView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        setContentHuggingPriority(755, for: .vertical)
-        setContentCompressionResistancePriority(249, for: .vertical)
         contentView.addSubview(subCategoryName)
         subCategoryImageView.addSubview(activityIndicator)
         contentView.addSubview(subCategoryImageView)
@@ -95,7 +90,7 @@ class SubCategoryTableViewCell: UITableViewCell {
             layoutConstraint += [
                 subCategoryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant:10),
                 subCategoryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-                subCategoryImageView.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: 20) ,
+                subCategoryImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20) ,
                 subCategoryImageView.heightAnchor.constraint(equalToConstant: 45),
                 subCategoryImageView.widthAnchor.constraint(equalToConstant: 45),
                 subCategoryName.leadingAnchor.constraint(equalTo: subCategoryImageView.trailingAnchor, constant: 30),
@@ -104,13 +99,11 @@ class SubCategoryTableViewCell: UITableViewCell {
                 activityIndicator.centerXAnchor.constraint(equalTo: subCategoryImageView.centerXAnchor, constant:0),
                 activityIndicator.centerYAnchor.constraint(equalTo: subCategoryImageView.centerYAnchor, constant:0)
             ]
-        layoutConstraint[2].priority = 750
         NSLayoutConstraint.activate(layoutConstraint)
     }
     
     func configureCategoryCell() -> () {
         setNeedsUpdateConstraints()
-        setNeedsLayout()
     }
 
 }

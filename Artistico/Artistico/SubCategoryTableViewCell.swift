@@ -68,6 +68,11 @@ class SubCategoryTableViewCell: UITableViewCell {
         return CGSize(width: UIViewNoIntrinsicMetric, height:estimatedCellHeight)
     }
     
+    override class var layerClass : Swift.AnyClass {
+        
+        return CALayer.self
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.contentView.layoutIfNeeded()
@@ -95,7 +100,7 @@ class SubCategoryTableViewCell: UITableViewCell {
                 subCategoryImageView.widthAnchor.constraint(equalToConstant: 45),
                 subCategoryName.leadingAnchor.constraint(equalTo: subCategoryImageView.trailingAnchor, constant: 30),
                 subCategoryName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant:0),
-                subCategoryName.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: 20),
+                subCategoryName.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -20),
                 activityIndicator.centerXAnchor.constraint(equalTo: subCategoryImageView.centerXAnchor, constant:0),
                 activityIndicator.centerYAnchor.constraint(equalTo: subCategoryImageView.centerYAnchor, constant:0)
             ]
